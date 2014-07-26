@@ -11,14 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724001700) do
+ActiveRecord::Schema.define(version: 20140726173850) do
 
   create_table "signups", force: true do |t|
-    t.string "name"
-    t.string "school"
-    t.string "email"
-    t.string "isA"
-    t.string "cell_number"
+    t.string  "name"
+    t.string  "school"
+    t.string  "email"
+    t.string  "isA"
+    t.string  "cell_number"
+    t.string  "best"
+    t.string  "snack"
+    t.string  "allergies"
+    t.string  "drink"
+    t.string  "shirt_size"
+    t.boolean "vegetarian",  default: false
+    t.boolean "vegan",       default: false
+    t.boolean "kosher",      default: false
+    t.boolean "halal",       default: false
+    t.boolean "lactose",     default: false
+    t.boolean "survey",      default: false
+    t.boolean "survey_now",  default: false
   end
 
 end

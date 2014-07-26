@@ -254,3 +254,8 @@ fieldset select{
 	font-size: xx-large;
 	width: 100%;
 }
+
+.big-btn{
+	width: 100% !important;
+	font-size: xx-large;
+}

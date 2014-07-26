@@ -5,7 +5,18 @@
   	<td> Email </td>
   	<td> School </td>
   	<td> Cell Number</td>
-  	<td> isA? </td>
+  	<td> Best things about Hackathon </td>
+    <td> Allergies </td>
+    <td> Fav. Snack </td>
+    <td> Fav. Drink </td>
+    <td> Shirt Size </td>
+    <td> Vegetarian </td>
+    <td> Vegan </td>
+    <td> Kosher </td>
+    <td> Halal </td>
+    <td> Lactose</td>
+    <td> Survey </td>
+    <td> Survey Now</td>
   </thead>
   <tbody>
   	<% @signups.each do |signup| %>
@@ -13,8 +24,19 @@
   			<td> <%= signup.name %></td>
   			<td> <%= signup.email %></td>
   			<td> <%= signup.school %></td>
-  			<td> <%= signup.cell_number %></td>
-  			<td> <%= signup.isA %></td>
+        <td> <%= signup.cell_number %></td>
+  			<td> <%= signup.best %></td>
+        <td> <%= signup.allergies %></td>
+        <td> <%= signup.snack %></td>
+        <td> <%= signup.drink %></td>
+        <td> <%= signup.shirt_size %></td>
+        <td> <%= signup.vegetarian %></td>
+        <td> <%= signup.vegan %></td>
+        <td> <%= signup.kosher %></td>
+        <td> <%= signup.halal %></td>
+        <td> <%= signup.lactose %></td>
+        <td> <%= signup.survey %></td>
+        <td> <%= signup.survey_now %></td>
   		</tr>
   	<% end %>
   </tbody>

@@ -10,7 +10,7 @@ end
 
 post "/create_signup" do
 	params.inspect
-  s = Signup.new(name: params[:name], email: params[:email], school: params[:school], cell_number: params[:cell_number], isA: params[:isA])
+  s = Signup.new(params)
   s.save if s
   "Success"
 end

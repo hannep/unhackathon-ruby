@@ -73,25 +73,26 @@ $(".previous").click(function(){
 	});
 });
 
-$(".hacker").click(function(){
-	sessionStorage.isA = "hacker";
-});
-$(".mentor").click(function(){
-	sessionStorage.isA = "mentor";
-});
-$(".sponsor").click(function(){
-	sessionStorage.isA = "sponsor";
-});
-
 $(".submit").click(function(){
 	var json = {}
-	json.isA = sessionStorage.isA;
 	json.name = $("input[name='name']").val();
 	json.email = $("input[name='email'").val();
 	json.school = $("input[name='school'").val();
 	json.cell_number = $("input[name='cell_number'").val();
-	$.post("/create_signup", json, function(data){
-		window.location.href = "/signups";
+	json.best = $("input[name='best']").val();
+	json.allergies = $("input[name='allergies']").val();
+	json.snack = $("input[name='snack']").val();
+	json.drink = $("input[name='drink']").val();
+	json.shirt_size = $("#shirt_size").val();
+	json.vegetarian = $("#vegetarian").prop('checked');
+	json.vegan = $("#vegan").prop('checked');
+	json.kosher = $("#kosher").prop('checked');
+	json.halal = $("#halal").prop('checked');
+	json.lactose = $("#lactose").prop('checked');
+	json.survey = $(".bool-slider").hasClass("true");
+	json.survey_now = $("#survey").prop('checked');
+	$.post("/create_signup",json,function(data){
+		//window.location.href="/";
 	});
 	return false;
 });

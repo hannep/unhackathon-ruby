@@ -12,10 +12,9 @@
 	<!-- fieldsets -->
 	<fieldset>
 		<h2 class="fs-title">Sign Up</h2>
-		<h3 class="fs-subtitle">What are you?</h3>
-		<input type="button" name="next" class="next action-button hacker" value="Hacker" />
-		<input type="button" name="next" class="next action-button mentor" value="Mentor" />
-		<input type="button" name="next" class="next action-button sponsor" value="Sponsor" />
+		<h3 class="fs-subtitle">What is the best thing about hackathons?</h3>
+		<input type="text" name="best" placeholder="Tell us.."/>
+		<input type="button" name="next" class="next action-button big-btn" value="Sign Me Up!" />
 	</fieldset>
 	<fieldset>
 		<h2 class="fs-title">Contact Info</h2>
@@ -31,11 +30,11 @@
 		<h2 class="fs-title">Dietary Needs</h2>
 		<h3 class="fs-subtitle">Let me know if you have any dietary restrictions </h3>
 		<div class="checkboxes">
-			<input class="checkbox" type="checkbox" name="diet" value="Vegetarian"/>Vegetarian<br>	
-			<input class="checkbox" type="checkbox" name="diet" value="Vegan">Vegan<br>	
-			<input class="checkbox" type="checkbox" name="diet" value="Kosher">Kosher<br>
-			<input class="checkbox" type="checkbox" name="diet" value="Halal">Halal<br>
-			<input class="checkbox" type="checkbox" name="diet" value="Lactose">Lactose intolerance<br>
+			<input id="vegetarian" class="checkbox" type="checkbox" name="diet" value="Vegetarian"/>Vegetarian<br>	
+			<input id="vegan" class="checkbox" type="checkbox" name="diet" value="Vegan">Vegan<br>	
+			<input id="kosher" class="checkbox" type="checkbox" name="diet" value="Kosher">Kosher<br>
+			<input id="halal" class="checkbox" type="checkbox" name="diet" value="Halal">Halal<br>
+			<input id="lactose" class="checkbox" type="checkbox" name="diet" value="Lactose">Lactose intolerance<br>
 		</div>
 		<input type="text" name="allergies" placeholder="Any Allergies?" />
 		<input type="text" name="snack" placeholder="Favorite Snack" />
@@ -69,7 +68,7 @@
 		    </div>
 		</div>
 		<div class="checkboxes">
-			<input class="checkbox" type="checkbox" name="survey" value="survey">Go ahead and ask me now!<br>
+			<input id="survey" class="checkbox" type="checkbox" name="survey" value="survey">Go ahead and ask me now!<br>
 		</div>
 		
 		<input type="button" name="previous" class="previous action-button" value="Previous" />
