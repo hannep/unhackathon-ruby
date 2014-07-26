@@ -1,0 +1,21 @@
+<h1> Sign ups </h1>
+<table class="table table-striped">
+  <thead>
+  	<td> FullName </td>
+  	<td> Email </td>
+  	<td> School </td>
+  	<td> Cell Number</td>
+  	<td> isA? </td>
+  </thead>
+  <tbody>
+  	<% @signups.each do |signup| %>
+  		<tr>
+  			<td> <%= signup.name %></td>
+  			<td> <%= signup.email %></td>
+  			<td> <%= signup.school %></td>
+  			<td> <%= signup.cell_number %></td>
+  			<td> <%= signup.isA %></td>
+  		</tr>
+  	<% end %>
+  </tbody>
+</table>
