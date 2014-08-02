@@ -259,3 +259,9 @@ fieldset select{
 	width: 100% !important;
 	font-size: xx-large;
 }
+
+.error_field{
+	outline: none;
+    border-color: #FF0000;
+    box-shadow: 0 0 10px #FF0000;
+}
