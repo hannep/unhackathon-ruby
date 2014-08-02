@@ -4,6 +4,7 @@ class Model < ActiveRecord::Base
 end
 
 class Signup < ActiveRecord::Base
+	#These fields were declared in the db/migrations
 	#Has the following fields: 
 	# name (string)
 	# email (string)
