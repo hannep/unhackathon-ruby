@@ -6,17 +6,18 @@
 
 html {
 	height: 100%;
-	background: #000;
 }
 
 body {
 	font-family: montserrat, arial, verdana;
+	background-size: cover;
+	background-image: 
+		url("/img/background.jpg");
 }
 /*form styles*/
 #msform {
 	width: 400px;
 	margin: 50px auto;
-	margin-top: 150px;
 	text-align: center;
 	position: relative;
 }
