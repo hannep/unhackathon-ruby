@@ -113,3 +113,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# Our configuration
+/config/mail.rb
+/config/database.sqlite3

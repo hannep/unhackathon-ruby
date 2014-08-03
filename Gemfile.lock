@@ -75,7 +75,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   browser
-  mail
+  mail (~> 2.6.1)
   pg
   rake
   shotgun
