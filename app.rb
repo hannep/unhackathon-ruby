@@ -17,7 +17,7 @@ post "/create_signup" do
   email = params[:email].gsub(/\+.*@/, "@")
   old_signup = Signup.find_by email: email
   if old_signup != nil then
-    if old_signum.is_validated then
+    if old_signup.is_validated then
       return "Failure: email already exists"
     end
     s = old_signup

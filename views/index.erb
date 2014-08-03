@@ -3,20 +3,21 @@
 <form id="msform">
 	<!-- progressbar -->
 	<ul id="progressbar">
-		<li class="active">Hello</li>
-		<li>Contact Info</li>
-		<li>sjfklsjfj</li>
-		<li>Shirt Size</li>
-		<li>Survey</li>
+		<li id="hello-progress" class="active">Hello</li>
+		<li id="contact-progress">Contact Info</li>
+		<li id="food-progress">Food, Swag &amp; Sleep</li>
+		<li id="you-progress">You</li>
+		<li id="thoughts-progress">Thoughts</li>
 	</ul>
 	<!-- fieldsets -->
-	<fieldset>
-		<h2 class="fs-title large">aslfdkfj</h2>
+	<fieldset data-progress="hello">
+		<h2 class="fs-title large">Welcome!</h2>
 		<h3 class="fs-subtitle large">What's the best thing about hackathons?</h3>
-		<input type="text" name="best" placeholder="The empty box is calling to you." data-validator="required"/>
+		<input type="range" min="1" max="10">
+		<input type="text" name="best" placeholder="This empty box is calling to you." data-validator="required"/>
 		<input type="button" name="next" class="next action-button big-btn" value="Sign Me Up!" />
 	</fieldset>
-	<fieldset id="contact-info">
+	<fieldset id="contact-info" data-progress="contact">
 		<h2 class="fs-title">Let's stay in touch.</h2>
 		<h3 class="fs-subtitle"></h3>
 		<input type="text" name="name" placeholder="Full Name" data-validator="required"/>
@@ -27,24 +28,18 @@
 		<input type="button" name="previous" class="previous action-button" value="Previous" />
 		<input type="button" name="next" class="next action-button" value="Next" />
 	</fieldset>
-	<fieldset id="food-swag-sleep">
-		<h2 class="fs-title">Food, Swag, and Sleep</h2>
-		<h3 class="fs-subtitle">Let us know if you have any dietary restrictions </h3>
-		<div class="checkboxes">
+	<fieldset id="food-swag-sleep" data-progress="food">
+		<h2 class="fs-title">Food, Swag, &amp; Sleep</h2>
+		<div class="checkboxes clearfix">
 			<% ["Vegetarian", "Vegan", "Kosher", "Halal"].each do |food| %>
-			<div class="checkbox-container"><input id="<%= food.downcase %>" class="food-checkbox" type="checkbox" name="diet" value="<%= food %>"/><label for="<%= food.downcase %>"><div class="visual-checkbox"></div><%= food %></label></div>
+			<div class="checkbox-container col-xs-6"><input id="<%= food.downcase %>" class="fancy-checkbox" type="checkbox" name="<%= food %>" /><label for="<%= food.downcase %>"><div class="visual-checkbox"></div><%= food %></label></div>
 			<% end %>
 		</div>
-		<input type="text" name="allergies" placeholder="Any Allergies?" />
+		<input type="text" name="allergies" placeholder="Other food restrictions?" />
 		<input type="text" name="snack" placeholder="Favorite Snack" />
 		<input type="text" name="drink" placeholder="Favorite Drink" />
-		<input type="button" name="previous" class="previous action-button" value="Previous" />
-		<input type="button" name="next" class="next action-button" value="Next" />
-	</fieldset>
-	<fieldset>
-		<h2 class="fs-title">Unhackathon shirt</h2>
-		<h3 class="fs-subtitle">Would you like a Unhackathon shirt? All I need is your size.</h3>
-		<select id="shirt_size" data-validator="tshirt">
+		<h3 class="fs-subtitle survey-header">What's your shirt size? Please note that the women's tend to run a little small.</h3>
+		<select id="shirt_size" name="shirt_size" data-validator="tshirt">
 			<option value="invalid">Pick a size</option>
 			<option value="Women's XS">Women's XS</option>
 			<option value="Women's S">Women's S</option>
@@ -59,20 +54,59 @@
 		<input type="button" name="previous" class="previous action-button" value="Previous" />
 		<input type="button" name="next" class="next action-button" value="Next" />
 	</fieldset>
-	<fieldset>
-		<h2 class="fs-title">Survey</h2>
-		<h3 class="fs-subtitle">Can contact you with more questions about your goals as a hacker.?</h3>
-		<div class="bool-slider true">
-		    <div class="inset">
-		        <div class="control"></div>
-		    </div>
-		</div>
-		<div class="checkboxes">
-			<input id="survey" class="checkbox" type="checkbox" name="survey" value="survey">Go ahead and ask me now!<br>
-		</div>
+	<fieldset data-progress="you">
+		<h2 class="fs-title">You</h2>
+		<div>Unhackathon doesn't require any specific experience or interest. Instead, we're looking for thoughtful and creative hackers who are excited about learning and building.</div>
 		
+		<h3 class="fs-subtitle survey-header">Will this be your first hackathon?</h3>
+		<div class="checkbox-container">
+			<input id="first_time" class="fancy-checkbox col-xs-12" type="checkbox" name="first_time">
+			<label for="first_time"><div class="visual-checkbox"></div>Yes! I'm excited!</label>
+		</div>
 		<input type="button" name="previous" class="previous action-button" value="Previous" />
-		<input type="submit" name="submit" class="submit action-button" value="Submit" />
+		<input type="button" name="next" class="next action-button" value="Next" />
+	</fieldset>
+	<fieldset data-progress="you">
+		<h2 class="fs-title">You</h2>
+		<h3 class="fs-subtitle survey-header">What would you like to work on?</h3>
+		<%= erb :checkbox, locals: { :id => "frontend_code", :text => "Frontend" }%>
+		<%= erb :checkbox, locals: { :id => "hardware_hacking", :text => "Hardware" }%>
+		<%= erb :checkbox, locals: { :id => "user_interface", :text => "UX" }%>
+		<%= erb :checkbox, locals: { :id => "design", :text => "Design" }%>
+		<%= erb :checkbox, locals: { :id => "ideas", :text => "Ideas" }%>
+		<%= erb :checkbox, locals: { :id => "mobile_apps", :text => "Mobile" }%>
+		<%= erb :checkbox, locals: { :id => "game_dev", :text => "Game Dev" }%>
+		<%= erb :checkbox, locals: { :id => "data_science", :text => "Data Science" }%>
+		<div class="checkbox-container col-xs-12">
+			<input id="something_else" class="fancy-checkbox" type="checkbox">
+			<label for="something_else"><div class="visual-checkbox"></div>Something else (you're awesome!):</label>
+		</div>
+		<input type="text" id="other-interest" name="other_interest" placeholder="Underwater basket weaving">
+		<div class="clearfix"></div>
+		<h3 class="fs-subtitle survey-header">How would you rate your level of experience?</h3>
+		<input type="text" id="experience" class="slider-input" data-slider-snap="true" data-slider-range="1,4" data-slider-step="1" data-slider="true" name="experience">
+		<div class="slider-caption left">I’m completely new, can’t wait to learn!</div>
+		<div class="slider-caption right">I’m ready to get a job in my favorite field. </div>
+		<input type="button" name="previous" class="previous action-button" value="Previous" />
+		<input type="button" name="next" class="next action-button" value="Next" />
+	</fieldset>
+	<fieldset data-progress="thoughts">
+		<h2 class="fs-title">Thoughts</h2>
+		<h3 class="fs-subtitle survey-header">What do you hope to achieve at Unhackathon?</h3>
+		<textarea id="achieve_text" name="achieve_text"></textarea>
+		<h3 class="fs-subtitle survey-header">What new skill or technology would you like to learn or try at Unhackathon?</h3>
+		<textarea id="new_skill_text" name="new_skill_text"></textarea>
+		<input type="button" name="previous" class="previous action-button" value="Previous" />
+		<input type="button" name="next" class="next action-button" value="Next" />
+	</fieldset>
+	<fieldset data-progress="thoughts">
+		<h2 class="fs-title">Thoughts</h2>
+		<h3 class="fs-subtitle survey-header"><div>If you’ve been to a hackathon before, how do you think hackathons should be improved?</div><div class="alternative-indicator">or</div><div> If this is your first hackathon, how do you imagine the ideal hackathon?</div></h3>
+		<textarea id="improve_text" name="improve_text"></textarea>
+		<h3 class="fs-subtitle survey-header">What do you envision using your skills for <br>in the future? </h3>
+		<textarea id="improve_text" name="improve_text"></textarea>
+		<input type="button" name="previous" class="previous action-button" value="Previous" />
+		<input type="button" name="submit" class="submit action-button" value="Submit" />
 	</fieldset>
 </form>
 </div>

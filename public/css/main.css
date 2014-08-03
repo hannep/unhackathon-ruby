@@ -49,7 +49,7 @@ body {
 
 /*form styles*/
 #msform {
-	width: 400px;
+	width: 450px;
 	margin: 0 auto;
 	text-align: center;
 	position: relative;
@@ -70,13 +70,14 @@ body {
     background-image: url("../img/background-blur.jpg");
     background-position: center -134px;
     background-size: 100vw;
+    font-size: 13px;
 }
 /*Hide all except first fieldset*/
 #msform fieldset:not(:first-of-type) {
 	display: none;
 }
 /*inputs*/
-#msform input, #msform textarea {
+#msform input {
 	padding: 15px;
 	border: 1px solid #ccc;
 	border-radius: 3px;
@@ -301,23 +302,41 @@ body{
     cursor: default;
 }
 
-.checkboxes{
-	text-align: left;
+.survey-header {
+    font-weight: 700;
+    margin-bottom: 5px;
 }
 
-#msform .checkboxes input.food-checkbox[type=checkbox]{
+.checkboxes{
+	text-align: left;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+div.checkbox-container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#other-interest {
+    display: none;
+}
+
+.checkbox-container input.fancy-checkbox[type=checkbox]{
     display: none;
 }
 
 
-.checkboxes .checkbox-container .food-checkbox + label {
+.checkbox-container .fancy-checkbox + label {
+    text-align: left;
     font-weight: normal;
+    font-size: 13px;
     position: relative;
     display: block;
-    padding-left: 25px;
+    padding-left: 35px;
 }
 
-.checkboxes .checkbox-container .food-checkbox + label .visual-checkbox {
+.checkbox-container .fancy-checkbox + label .visual-checkbox {
     position: absolute;
     width: 20px;
     height: 20px;
@@ -329,10 +348,10 @@ body{
     border: 1 px solid gray;
 }
 
-.checkboxes .checkbox-container .food-checkbox:checked + label {
+.checkbox-container .fancy-checkbox:checked + label {
 }
 
-.checkboxes .checkbox-container .food-checkbox + label .visual-checkbox:after {
+.checkbox-container .fancy-checkbox + label .visual-checkbox:after {
     opacity: 0;
     content: '';
     position: absolute;
@@ -351,11 +370,11 @@ body{
     display: inline-block; 
 }
 
-.checkboxes .checkbox-container .food-checkbox + label:hover .visual-checkbox:after {
+.checkbox-container .fancy-checkbox + label:hover .visual-checkbox:after {
     opacity: 0.5;
 }
 
-.checkboxes .checkbox-container .food-checkbox:checked + label .visual-checkbox:after {
+.checkbox-container .fancy-checkbox:checked + label .visual-checkbox:after {
     opacity: 1;
 }
 
@@ -363,10 +382,61 @@ body{
 	width:15% !important;
 } 
 
-fieldset select{
-	font-size: 16px;
+.alternative-indicator {
+    font-weight: normal;
+    margin: 5px 0;
+}
+
+.slider-caption {
+    width: 120px;
+    font-size: 12px;
+    padding-top: 10px;
+}
+
+.slider-caption:before {
+    content: " ";
+    display: block;
+    float: left;
+    margin-top: -8px;
+    margin: -8px 0 2px 2px;
+    width: 0; 
+    height: 0; 
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid black;
+}
+
+.slider-caption.left {
+    float: left;
+    text-align: left;
+}
+
+.slider-caption.right:before {
+    float: right;
+}
+
+.slider-caption.right {
+    float: right;
+    text-align: right;
+}
+
+#msform fieldset select{
+	font-size: 13px;
 	width: 100%;
     border: 1px solid gray;
+}
+
+#msform fieldset textarea{
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 11px;
+    height: 70px;
 }
 
 .big-btn{

@@ -42,6 +42,13 @@ $("input,select").on("change", function (event) {
 	validateInput(event.currentTarget);
 });
 
+function updateProgress(progressSection) {
+	var progressItem = $("#" + progressSection + "-progress")
+	progressItem.addClass("active");
+	progressItem.prevAll().addClass("active");
+	progressItem.nextAll().removeClass("active");
+}
+
 $(".next").click(function(){
 	var can_proceed = true;
 	
@@ -56,9 +63,8 @@ $(".next").click(function(){
 	if(can_proceed){
 		if(animating) return false;
 		animating = true;
-		//activate next step on progressbar using the index of next_fs
-		$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-		
+		updateProgress(next_fs.data("progress"));
+
 		//show the next fieldset
 		next_fs.show(); 
 		//hide the current fieldset with style
@@ -93,7 +99,7 @@ $(".previous").click(function(){
 	previous_fs = $(this).parent().prev();
 	
 	//de-activate current step on progressbar
-	$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+	updateProgress(previous_fs.data("progress"));
 	
 	//show the previous fieldset
 	previous_fs.show(); 
@@ -119,6 +125,10 @@ $(".previous").click(function(){
 		easing: 'easeInOutBack'
 	});
 });
+
+$("#something_else").on("change", function(event) {
+	$("#other-interest").toggle($(event.currentTarget).prop("checked"));
+})
 
 $(".submit").click(function(){
 	var json = {}
