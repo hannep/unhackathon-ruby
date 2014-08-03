@@ -3,18 +3,23 @@
 # => postgres://{user}:{password}@{host}:{port}/path
 #This is automatically configured on Heroku, you only need to worry if you also
 #want to run your app locally
-configure :production do
-	set :database, {adapter: "sqlite3", database: "db/database.sqlite3"}
-end
 
-configure :development do 
-	set :database, {adapter: "sqlite3", database: "db/database.sqlite3"}
+module Unhackathon
+  class Application < Sinatra::Application
+    configure :production do
+    	set :database, {adapter: "sqlite3", database: "db/database.sqlite3"}
+    end
 
-end
+    configure :development do 
+    	set :database, {adapter: "sqlite3", database: "db/database.sqlite3"}
 
-configure do 
-	#This can have passwords, so we need a separate file next to us.
-	#If we were more awesome we might use an environment variable
-	require_relative "./mail"
+    end
+
+    configure do 
+    	#This can have passwords, so we need a separate file next to us.
+    	#If we were more awesome we might use an environment variable
+    	require_relative "./mail"
+    end
+  end
 end
 
