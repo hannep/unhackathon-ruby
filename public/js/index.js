@@ -149,6 +149,7 @@ $(".submit").click(function(){
 		json[$(element).attr("name")] = $(element).val() == "on";
 	});
 	delete json["undefined"]
+	delete json.submit;
 	console.log(json);
 	$.post("/create_signup", json).done(function(data){
 		moveTo(current_fs, $("#success-page"));

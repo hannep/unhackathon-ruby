@@ -36,7 +36,7 @@
 		<h2 class="fs-title">Food, Swag, &amp; Sleep</h2>
 		<div class="checkboxes clearfix">
 			<% ["Vegetarian", "Vegan", "Kosher", "Halal"].each do |food| %>
-			<div class="checkbox-container col-xs-6"><input id="<%= food.downcase %>" class="fancy-checkbox" type="checkbox" name="<%= food %>" /><label for="<%= food.downcase %>"><div class="visual-checkbox"></div><%= food %></label></div>
+			<div class="checkbox-container col-xs-6"><input id="<%= food.downcase %>" class="fancy-checkbox" type="checkbox" name="<%= food.downcase %>" /><label for="<%= food.downcase %>"><div class="visual-checkbox"></div><%= food %></label></div>
 			<% end %>
 		</div>
 		<input type="text" name="allergies" placeholder="Other food restrictions?" />
