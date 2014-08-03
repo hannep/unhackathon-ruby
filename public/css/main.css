@@ -72,10 +72,16 @@ body {
 .about{
     padding-left: 200px;
     padding-right: 200px;
+    padding-bottom: 50px;
 }
 
 .about h2{
     text-align: center;
+    margin-top: 60px;
+}
+
+.about h3 {
+    font-size: 19px;
 }
 
 /*form styles*/
@@ -99,7 +105,7 @@ body {
 	position: absolute;
 
     background-image: url("../img/background-blur.jpg");
-    background-position: center -134px;
+    background-position: center -146px;
     background-size: 100vw;
     font-size: 13px;
 }

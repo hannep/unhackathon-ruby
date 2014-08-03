@@ -146,7 +146,7 @@ $(".submit").click(function(){
 		json[$(element).attr("name")] = $(element).val();
 	});
 	$("#msform").find("input[type=checkbox]").each(function (index, element) {
-		json[$(element).attr("name")] = $(element).val() == "on";
+		json[$(element).attr("name")] = $(element).prop( "checked" );
 	});
 	delete json["undefined"]
 	delete json.submit;
