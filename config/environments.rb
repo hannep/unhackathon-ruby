@@ -18,4 +18,12 @@ end
 
 configure :development do 
 	set :database, {adapter: "sqlite3", database: "db/database.sqlite3"}
+
 end
+
+configure do 
+	#This can have passwords, so we need a separate file next to us.
+	#If we were more awesome we might use an environment variable
+	require_relative "./mail"
+end
+

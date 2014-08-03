@@ -3,39 +3,37 @@
 <form id="msform">
 	<!-- progressbar -->
 	<ul id="progressbar">
-		<li class="active">Sign Up</li>
+		<li class="active">Hello</li>
 		<li>Contact Info</li>
-		<li>Food</li>
+		<li>sjfklsjfj</li>
 		<li>Shirt Size</li>
 		<li>Survey</li>
 	</ul>
 	<!-- fieldsets -->
 	<fieldset>
-		<h2 class="fs-title">Sign Up</h2>
-		<h3 class="fs-subtitle">What is the best thing about hackathons?</h3>
-		<input type="text" name="best" placeholder="Tell us.."/>
+		<h2 class="fs-title large">aslfdkfj</h2>
+		<h3 class="fs-subtitle large">What's the best thing about hackathons?</h3>
+		<input type="text" name="best" placeholder="The empty box is calling to you."/>
 		<input type="button" name="next" class="next action-button big-btn" value="Sign Me Up!" />
 	</fieldset>
 	<fieldset>
-		<h2 class="fs-title">Contact Info</h2>
-		<h3 class="fs-subtitle">So we can contact you</h3>
+		<h2 class="fs-title">Let's stay in touch.</h2>
+		<h3 class="fs-subtitle"></h3>
 		<input type="text" name="name" placeholder="Full Name" />
-		<input type="text" name="email" placeholder="Email" />
-		<input type="text" name="email_con" placeholder="Confirm Email" />
+		<input type="email" name="email" placeholder="Email" />
+		<input type="email" name="email_con" placeholder="Confirm Email" />
 		<input type="text" name="school" placeholder="School" />
-		<input type="text" name="cell_number" placeholder="Cell Number" />
+		<input type="tel" name="cell_number" placeholder="Cell Number" />
 		<input type="button" name="previous" class="previous action-button" value="Previous" />
 		<input type="button" name="next" class="next action-button" value="Next" />
 	</fieldset>
 	<fieldset>
-		<h2 class="fs-title">Dietary Needs</h2>
-		<h3 class="fs-subtitle">Let me know if you have any dietary restrictions </h3>
+		<h2 class="fs-title">Food, Swag, and Sleep</h2>
+		<h3 class="fs-subtitle">Let us know if you have any dietary restrictions </h3>
 		<div class="checkboxes">
-			<input id="vegetarian" class="checkbox" type="checkbox" name="diet" value="Vegetarian"/>Vegetarian<br>	
-			<input id="vegan" class="checkbox" type="checkbox" name="diet" value="Vegan">Vegan<br>	
-			<input id="kosher" class="checkbox" type="checkbox" name="diet" value="Kosher">Kosher<br>
-			<input id="halal" class="checkbox" type="checkbox" name="diet" value="Halal">Halal<br>
-			<input id="lactose" class="checkbox" type="checkbox" name="diet" value="Lactose">Lactose intolerance<br>
+			<% ["Vegetarian", "Vegan", "Kosher", "Halal"].each do |food| %>
+			<div class="checkbox-container"><input id="<%= food.downcase %>" class="food-checkbox" type="checkbox" name="diet" value="<%= food %>"/><label for="<%= food.downcase %>"><div class="visual-checkbox"></div><%= food %></label></div>
+			<% end %>
 		</div>
 		<input type="text" name="allergies" placeholder="Any Allergies?" />
 		<input type="text" name="snack" placeholder="Favorite Snack" />

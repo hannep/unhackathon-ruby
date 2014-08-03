@@ -155,4 +155,6 @@ $(document).ready(function() {
             }
         }
     });
+    var fieldsets = $("#msform fieldset");
+    var offsetTop = fieldsets.offset().top;
 });

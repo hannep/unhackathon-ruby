@@ -22,6 +22,9 @@ GEM
     eventmachine (1.0.3)
     i18n (0.6.11)
     json (1.8.1)
+    mail (2.6.1)
+      mime-types (>= 1.16, < 3)
+    mime-types (2.3)
     minitest (5.4.0)
     pg (0.17.1)
     rack (1.5.2)
@@ -72,6 +75,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   browser
+  mail
   pg
   rake
   shotgun

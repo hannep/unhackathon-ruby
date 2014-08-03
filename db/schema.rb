@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140726173850) do
+ActiveRecord::Schema.define(version: 20140803010216) do
 
   create_table "signups", force: true do |t|
     t.string  "name"
@@ -24,13 +24,15 @@ ActiveRecord::Schema.define(version: 20140726173850) do
     t.string  "allergies"
     t.string  "drink"
     t.string  "shirt_size"
-    t.boolean "vegetarian",  default: false
-    t.boolean "vegan",       default: false
-    t.boolean "kosher",      default: false
-    t.boolean "halal",       default: false
-    t.boolean "lactose",     default: false
-    t.boolean "survey",      default: false
-    t.boolean "survey_now",  default: false
+    t.boolean "vegetarian",       default: false
+    t.boolean "vegan",            default: false
+    t.boolean "kosher",           default: false
+    t.boolean "halal",            default: false
+    t.boolean "lactose",          default: false
+    t.boolean "survey",           default: false
+    t.boolean "survey_now",       default: false
+    t.boolean "is_validated",     default: false
+    t.string  "validation_token"
   end
 
 end

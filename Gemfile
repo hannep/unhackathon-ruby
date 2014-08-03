@@ -7,6 +7,7 @@ gem "rake"
 gem "browser"
 gem "thin"
 gem "slim"
+gem "mail"
 
 group :development do 
 	gem 'shotgun'
