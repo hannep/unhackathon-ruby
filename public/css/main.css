@@ -1,6 +1,11 @@
 /*custom font*/
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
 
+@font-face {
+    font-family: chunkFive;
+    src: url(../fonts/chunkfive-webfont-webfont.woff);
+}
+
 /*basic reset*/
 * {margin: 0; padding: 0;}
 
@@ -11,6 +16,17 @@ html {
 body {
 	font-family: montserrat, arial, verdana;
 	background-size: cover;
+}
+
+.chunk-five {
+    font-family: chunkFive;
+}
+
+.about p.single-column {
+    text-align: justify;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #confirmed .blurred-info {
@@ -71,7 +87,7 @@ body {
 	color: #2C3E50;
 	font-size: 13px;
 }
-#msform input:invalid, #msform input.error_field {
+#msform input:invalid, #msform input.error_field, #msform select.error_field{
     border: 1px solid red;
 }
 /*buttons*/
@@ -91,6 +107,7 @@ body {
 }
 /*headings*/
 .fs-title {
+    font-family: chunkFive;
 	font-size: 15px;
 	text-transform: uppercase;
 	color: #2C3E50;
@@ -347,8 +364,9 @@ body{
 } 
 
 fieldset select{
-	font-size: xx-large;
+	font-size: 16px;
 	width: 100%;
+    border: 1px solid gray;
 }
 
 .big-btn{

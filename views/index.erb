@@ -44,7 +44,8 @@
 	<fieldset>
 		<h2 class="fs-title">Unhackathon shirt</h2>
 		<h3 class="fs-subtitle">Would you like a Unhackathon shirt? All I need is your size.</h3>
-		<select id="shirt_size">
+		<select id="shirt_size" data-validator="tshirt">
+			<option value="invalid">Pick a size</option>
 			<option value="Women's XS">Women's XS</option>
 			<option value="Women's S">Women's S</option>
 			<option value="Women's M">Women's M</option>
@@ -77,25 +78,94 @@
 </div>
 <div class="bottom">
 	<div class="about">
-		<h2> About </h2>
-		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-		<h2> FAQ</h2>
+		<h2 class="chunk-five"> About </h2>
+		<p class="single-column"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+		<h2 class="chunk-five">Why does Unhackathon matter? </h2>
+
+		<p class="single-column">By running a small, focused event, we will be able to try the latest ideas for improving the hackathon experience for everyone. Our hackers will be thoughtful and driven, and we’re counting on their opinions to learn from this event. We’ll be collecting data throughout the weekend and sharing our findings with hackathon organizers everywhere, so we can all learn from our successes and mistakes. We’d like hackathons in general to become more inclusive, welcoming hackers with diverse backgrounds, experiences, and interests - and we look forward to discovering more about how to make that a reality. Some of our areas of interest include varied working environments, a restructured prize system that equally rewards different project qualities, promoting healthy attitudes about eating and sleeping, and a major focus on learning and mentorship. If you have a specific idea for improving hackathons, we’d love to hear it! Send us a note at ideas@unhackathon.org. </p>
+		<h2 class="chunk-five"> FAQ</h2>
 		<div class="row">
 			<div class="col-md-4 col-sm-6">
-				<h3>Q: What is love?</h3>
-				<p>I don't know what you want me to say....its an not even a quetion</p>
+
+				<h3>Who should attend Unhackathon?</h3>
+
+				<p>Unhackathon is open to any undergraduate who wants to spend a weekend building something great! Whether this is your first hackathon or your 15th, you’ll have opportunities to learn from our hackers and mentors, compete for awards, and have an epic time. You must be a current student and over 18 to attend. </p>
 			</div>
+
+
+
 			<div class="col-md-4 col-sm-6">
-				<h3>Q: What is love?</h3>
-				<p>I don't know what you want me to say....its an not even a quetion</p>
+
+				<h3>What kind of experience is required?</h3>
+
+				<p>None! One of the things we like best about hackathons is that they’re great places to jump in and learn something completely new. Designers, game programmers, web developers and hardware hackers are all more than welcome. Use this opportunity to get outside your comfort zone and learn a new technology, API, or skill. We’ll even have awards for trying new things and having crazy awesome technical ambition.</p>
 			</div>
+
 			<div class="col-md-4 col-sm-6">
-				<h3>Q: What is love?</h3>
-				<p>I don't know what you want me to say....its an not even a quetion</p>
+
+				<h3>What will mentorship be like?</h3>
+
+				<p>We are so excited about our mentorship program. Our mentors will be coming from the best tech companies and startups in NYC. They’ll be around throughout the weekend to listen to your ideas, help you with technical challenges, and even help you learn new skills from the beginning. You can ask them questions about the real world of technology, and pick their brains about their areas of expertise.</p>
 			</div>
+			<div class="clearfix visible-lg-block visible-md-block"></div>
 			<div class="col-md-4 col-sm-6">
-				<h3>Q: What is love?</h3>
-				<p>I don't know what you want me to say....its an not even a quetion</p>
+
+				<h3>How does registration work?</h3>
+
+				<p>We’re accepting applications on a rolling basis, so apply now! We have no requirements for technical ambition or previous hackathons and awards - instead, we’re looking for creative hackers with diverse backgrounds, interests, and skill sets. Most of all, we’re excited to hear from thoughtful people who like the idea of influencing hackathons for the better.</p>
+			</div>
+
+			<div class="col-md-4 col-sm-6">
+
+				<h3>How big should teams be?</h3>
+
+				<p>Teams should be at most 4 people. You can choose your teammates before you arrive, or meet them at one of our opening activities. You are also free to work on a project by yourself and hang out with our hackers and mentors whenever you want.</p>
+			</div>
+
+			<div class="col-md-4 col-sm-6">
+
+				<h3>How much does attending cost?</h3>
+
+				<p>Unhackathon is totally free! We’ll provide healthy meals and snacks, an excellent working environment, great places to hang out and nap, and  of course more swag than you’ll know what to do with.</p>
+			</div>
+			<div class="clearfix visible-lg-block visible-md-block"></div>
+
+			<div class="col-md-4 col-sm-6">
+
+				<h3>What should I bring with me?</h3>
+
+				<p>Your brain, and your heart! And anything else that you need to be your most productive. Laptop, peripherals, sweatshirt, change of clothes, and a pillow and sleeping bag if you plan on napping. We’re working on getting some hardware to hack on, but you should plan on bringing anything you definitely need.</p>
+			</div>
+
+			<div class="col-md-4 col-sm-6">
+
+				<h3>How does travel work?</h3>
+
+				<p>Unhackathon is located at Stony Brook Unversity, on Long Island. We’ll be sending buses around the East Coast to pick up students from their universities. The more students from your school attend, the better chance you’ll have of grabbing a bus. And no matter what, if you can get to New York City we’ll pick you up!</p>
+			</div>
+
+			<div class="col-md-4 col-sm-6">
+
+				<h3>What kinds of awards can I win?</h3>
+
+				<p>We find that the standard hackathon awards system doesn’t encourage much project diversity or recognize subtle accomplishments like beautiful code, technical ambition, or brilliant user experience. Instead of awarding a grand prize, we’ll have prizes that reward our hacks’ best qualities. We consider them all to be equally important.  Check back soon for a full list along with our schedule!</p>
+			</div>
+
+			
+			<div class="clearfix visible-lg-block visible-md-block"></div>
+
+			<div class="col-md-4 col-sm-6">
+
+				<h3>Where’s the schedule?</h3>
+
+				<p>Good question! It’ll be coming out soon as we finalize our speakers and activities. Stay tuned!</p>
+			</div>
+
+			<div class="col-md-4 col-sm-6">
+
+				<h3>What if I have another question?</h3>
+
+				<p>You should email us at <a href="mailto:team@unhackathon.org">team@unhackathon.org</a>. We look forward to hearing from you!  
 			</div>
 		</div>
 	</div>

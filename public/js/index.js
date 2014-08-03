@@ -22,7 +22,25 @@ var validators = {
 	confirmEmail: function(text) {
 		return text === $("#msform input[name='email']").val() && validators.email(text);
 	},
+	tshirt: function(text) {
+		return text != "invalid";
+	}
 }
+
+function validateInput(element) {
+	var validatorName = $(element).data("validator");
+	if (!validatorName) {
+		return true;
+	}
+	var isValid = validators[validatorName]($(element).val());
+
+	$(element).toggleClass("error_field", !isValid);
+	return isValid;
+}
+
+$("input,select").on("change", function (event) {
+	validateInput(event.currentTarget);
+});
 
 $(".next").click(function(){
 	var can_proceed = true;
@@ -30,15 +48,9 @@ $(".next").click(function(){
 	current_fs = $(this).parent();
 	next_fs = $(this).parent().next();
 
-	current_fs.find("input").each(function (index, element) {
-		var validatorName = $(element).data("validator");
-		if (!validatorName) {
-			return;
-		}
-		var isValid = validators[validatorName]($(element).val());
+	current_fs.find("input,select").each(function (index, element) {
+		var isValid = validateInput(element);
 		can_proceed = can_proceed && isValid;
-
-		$(element).toggleClass("error_field", !isValid);
 	});
 
 	if(can_proceed){
