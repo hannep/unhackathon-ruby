@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'sinatra'
+gem "sinatra"
 gem "activerecord"
 gem "sinatra-activerecord"
 gem "rake"
 gem "browser"
 gem "thin"
 gem "slim"
-gem "mail"
+gem 'mail', '~> 2.6.1'
 
 group :development do 
 	gem 'shotgun'
