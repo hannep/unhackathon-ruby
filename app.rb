@@ -37,7 +37,7 @@ get "/validate" do
   if signup.validation_token == token then
     signup.is_validated = true
     signup.save
-    "Success"
+    erb :confirmed
   else
     "Failure"
   end
@@ -45,12 +45,12 @@ end
 
 get "/signups" do 
 	@signups = Signup.all
-	erb :signups, :layout => :layout2
+	erb :signups
 end
 
 get "/questions" do
   @questions = Question.all
-  erb :questions, :layout => :layout2
+  erb :questions
 end
 
 after do

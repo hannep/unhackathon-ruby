@@ -3,57 +3,44 @@ var current_fs, next_fs, previous_fs; //fieldsets
 var left, opacity, scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
 
+function required(text) {
+}
+
+var validators = {
+	phone: function (text) {
+		var phone_re = /[0-9.\-()]{7,}/;
+		return phone_re.test(text)
+	},
+	required: function (text) {
+		return (text || "") !== "";
+	},
+	email: function (text) {
+		// We're not going to try very hard at this, other than making sure it's not insane
+		var email_re = /.+@[a-z0-9\-_]+/i;
+		return email_re.test(text)
+	},
+	confirmEmail: function(text) {
+		return text === $("#msform input[name='email']").val() && validators.email(text);
+	},
+}
+
 $(".next").click(function(){
 	var can_proceed = true;
 	
 	current_fs = $(this).parent();
 	next_fs = $(this).parent().next();
-	
-	console.log(current_fs.find("h2").text());
-	switch(current_fs.find("h2").text()){
-		case "Sign Up":
-			console.log("worked-Signup");
-			break;
-		case "Contact Info":
-			console.log("worked-Contact Info");
-			var name = $("input[name='name']").val();
-			var email = $("input[name='email'").val();
-			var school = $("input[name='school'").val();
-			var cell_number = $("input[name='cell_number'").val();
-			if(name == "" || name == "Full Name"){
-				can_proceed = false;
-				$("input[name='name']").addClass("error_field");
-			}else{
-				$("input[name='name']").removeClass("error_field");
-			}
-			if(email == "" || email == "Email" || email !== $("input[name='email_con']").val()){
-				can_proceed = false;
-				$("input[name='email']").addClass("error_field");
-			}else{
-				$("input[name='email']").removeClass("error_field");
-			}
-			if(school == "" || school == "School"){
-				can_proceed = false;
-				$("input[name='school']").addClass("error_field");
-			}else{
-				$("input[name='school']").removeClass("error_field");
-			}
-			if(cell_number == "" || cell_number == "Cell Number"){
-				can_proceed = false;
-				$("input[name='cell_number']").addClass("error_field");
-			}else{
-				$("input[name='cell_number']").removeClass("error_field");
-			}
-			break;
-		case "Dietary Needs":
-			console.log("worked-Dietary Needs");
-			break;
-		case "Unhackathon shirt ":
-			console.log("worked-Unhackathon Shirt");
-			break;
-		default:
-			console.log("error in panel switching");
-	}
+
+	current_fs.find("input").each(function (index, element) {
+		var validatorName = $(element).data("validator");
+		if (!validatorName) {
+			return;
+		}
+		var isValid = validators[validatorName]($(element).val());
+		can_proceed = can_proceed && isValid;
+
+		$(element).toggleClass("error_field", !isValid);
+	});
+
 	if(can_proceed){
 		if(animating) return false;
 		animating = true;
@@ -155,6 +142,4 @@ $(document).ready(function() {
             }
         }
     });
-    var fieldsets = $("#msform fieldset");
-    var offsetTop = fieldsets.offset().top;
 });

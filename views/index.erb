@@ -13,21 +13,21 @@
 	<fieldset>
 		<h2 class="fs-title large">aslfdkfj</h2>
 		<h3 class="fs-subtitle large">What's the best thing about hackathons?</h3>
-		<input type="text" name="best" placeholder="The empty box is calling to you."/>
+		<input type="text" name="best" placeholder="The empty box is calling to you." data-validator="required"/>
 		<input type="button" name="next" class="next action-button big-btn" value="Sign Me Up!" />
 	</fieldset>
-	<fieldset>
+	<fieldset id="contact-info">
 		<h2 class="fs-title">Let's stay in touch.</h2>
 		<h3 class="fs-subtitle"></h3>
-		<input type="text" name="name" placeholder="Full Name" />
-		<input type="email" name="email" placeholder="Email" />
-		<input type="email" name="email_con" placeholder="Confirm Email" />
-		<input type="text" name="school" placeholder="School" />
-		<input type="tel" name="cell_number" placeholder="Cell Number" />
+		<input type="text" name="name" placeholder="Full Name" data-validator="required"/>
+		<input type="email" name="email" placeholder="Email" data-validator="email"/>
+		<input type="email" name="email_con" placeholder="Confirm Email" data-validator="confirmEmail"/>
+		<input type="text" name="school" placeholder="School" data-validator="required"/>
+		<input type="tel" name="cell_number" placeholder="Cell Number" data-validator="phone"/>
 		<input type="button" name="previous" class="previous action-button" value="Previous" />
 		<input type="button" name="next" class="next action-button" value="Next" />
 	</fieldset>
-	<fieldset>
+	<fieldset id="food-swag-sleep">
 		<h2 class="fs-title">Food, Swag, and Sleep</h2>
 		<h3 class="fs-subtitle">Let us know if you have any dietary restrictions </h3>
 		<div class="checkboxes">
@@ -102,6 +102,3 @@
 </div>
 
 <!-- jQuery -->
-<script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
-<!-- jQuery easing plugin -->
-<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>

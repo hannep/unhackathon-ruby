@@ -12,6 +12,25 @@ body {
 	font-family: montserrat, arial, verdana;
 	background-size: cover;
 }
+
+#confirmed .blurred-info {
+    border-radius: 3px;
+    padding: 5px 10px;
+    margin-top: 150px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    background-image: url("../img/background-blur.jpg");
+    background-position: center -215px;
+    background-size: 100vw;
+    width: 300px;
+    font-size: 17px;
+    font-family: Helvetica, Verdana, Arial, sans-serif;
+    text-align: center;
+    color: #333;
+}
+
 /*form styles*/
 #msform {
 	width: 400px;
@@ -52,6 +71,9 @@ body {
 	color: #2C3E50;
 	font-size: 13px;
 }
+#msform input:invalid, #msform input.error_field {
+    border: 1px solid red;
+}
 /*buttons*/
 #msform .action-button {
 	width: 100px;
@@ -81,7 +103,7 @@ body {
 .fs-subtitle {
 	font-weight: normal;
 	font-size: 13px;
-	color: #666;
+	color: #333;
 	margin-bottom: 20px;
 }
 .fs-subtitle.large {
@@ -145,11 +167,17 @@ body{
 .top{
 	width:100vw;
 	height:100vh;
-    min-height: 800px;
+    min-height: 650px;
     background-image: url("../img/background.jpg");
     background-size: 100vw;
     background-position: center 0px;
     padding-top: 67px;
+}
+
+@media(max-width: 1100px) {
+    .top, #confirmed .blurred-info, #msform fieldset  {
+        background-size: 1100px;
+    }
 }
 
 .bottom{
@@ -267,8 +295,9 @@ body{
 
 .checkboxes .checkbox-container .food-checkbox + label {
     font-weight: normal;
-    padding-left: 25px;
     position: relative;
+    display: block;
+    padding-left: 25px;
 }
 
 .checkboxes .checkbox-container .food-checkbox + label .visual-checkbox {
@@ -279,10 +308,7 @@ body{
     left: 0;
     border-radius: 4px;
 
-    -webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
-    -moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
-    box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
-    background: #b3bead;
+    background: #bb0000;
     border: 1 px solid gray;
 }
 
@@ -328,10 +354,4 @@ fieldset select{
 .big-btn{
 	width: 100% !important;
 	font-size: xx-large;
-}
-
-.error_field{
-	outline: none;
-    border-color: #FF0000;
-    box-shadow: 0 0 10px #FF0000;
 }
