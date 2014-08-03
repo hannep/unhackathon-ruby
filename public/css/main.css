@@ -69,6 +69,15 @@ body {
     color: #333;
 }
 
+.about{
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.about h2{
+    text-align: center;
+}
+
 /*form styles*/
 #msform {
 	width: 450px;
@@ -220,8 +229,12 @@ body{
 }
 
 @media(max-width: 1100px) {
-    .top, #confirmed .blurred-info, #msform fieldset  {
+    .top, #confirmed .blurred-info, #msform .page  {
         background-size: 1100px;
+    }
+
+    #msform .page {
+
     }
 }
 
@@ -469,4 +482,50 @@ div.checkbox-container {
 .big-btn{
 	width: 100% !important;
 	font-size: xx-large;
+}
+
+@media(max-width: 767px) {
+    .about {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .about p {
+        text-align: justify;
+    }
+
+    #logo {
+        position: static;
+        width: auto;
+    }
+}
+
+@media(max-width: 400px) {
+    #msform {
+        width: auto;
+    }
+
+    #progressbar {
+        display: none;
+    }
+
+    .top {
+        margin: 0;
+        padding: 0;
+        height: 450px;
+        min-height: 0;
+    }
+
+    .bottom {
+        height: auto;
+    }
+
+    #msform .page {
+        margin: 0;
+        border-radius: 0;
+        background-position: center 0px;
+        height: 450px;
+        background-size: 800px;
+        width: 100%;
+    }
 }
