@@ -10,25 +10,24 @@
 		<li id="thoughts-progress">Thoughts</li>
 	</ul>
 	<!-- fieldsets -->
-	<fieldset data-progress="hello">
+	<fieldset class="page" data-progress="hello">
 		<h2 class="fs-title large">Welcome!</h2>
 		<h3 class="fs-subtitle large">What's the best thing about hackathons?</h3>
-		<input type="range" min="1" max="10">
 		<input type="text" name="best" placeholder="This empty box is calling to you." data-validator="required"/>
-		<input type="button" name="next" class="next action-button big-btn" value="Sign Me Up!" />
+		<input type="button" class="next action-button big-btn" value="Sign Me Up!" />
 	</fieldset>
-	<fieldset id="contact-info" data-progress="contact">
+	<fieldset class="page" id="contact-info" data-progress="contact">
 		<h2 class="fs-title">Let's stay in touch.</h2>
 		<h3 class="fs-subtitle"></h3>
 		<input type="text" name="name" placeholder="Full Name" data-validator="required"/>
 		<input type="email" name="email" placeholder="Email" data-validator="email"/>
-		<input type="email" name="email_con" placeholder="Confirm Email" data-validator="confirmEmail"/>
+		<input type="email" id="email_confirmation" placeholder="Confirm Email" data-validator="confirmEmail"/>
 		<input type="text" name="school" placeholder="School" data-validator="required"/>
 		<input type="tel" name="cell_number" placeholder="Cell Number" data-validator="phone"/>
-		<input type="button" name="previous" class="previous action-button" value="Previous" />
-		<input type="button" name="next" class="next action-button" value="Next" />
+		<input type="button" class="previous action-button" value="Previous" />
+		<input type="button" class="next action-button" value="Next" />
 	</fieldset>
-	<fieldset id="food-swag-sleep" data-progress="food">
+	<fieldset class="page" id="food-swag-sleep" data-progress="food">
 		<h2 class="fs-title">Food, Swag, &amp; Sleep</h2>
 		<div class="checkboxes clearfix">
 			<% ["Vegetarian", "Vegan", "Kosher", "Halal"].each do |food| %>
@@ -51,10 +50,10 @@
 			<option value="Unisex XL">Unisex XL</option>
 			<option value="Unisex XXL">Unisex XXL</option>
 		</select><br>
-		<input type="button" name="previous" class="previous action-button" value="Previous" />
-		<input type="button" name="next" class="next action-button" value="Next" />
+		<input type="button" class="previous action-button" value="Previous" />
+		<input type="button" class="next action-button" value="Next" />
 	</fieldset>
-	<fieldset data-progress="you">
+	<fieldset class="page" data-progress="you">
 		<h2 class="fs-title">You</h2>
 		<div>Unhackathon doesn't require any specific experience or interest. Instead, we're looking for thoughtful and creative hackers who are excited about learning and building.</div>
 		
@@ -63,10 +62,10 @@
 			<input id="first_time" class="fancy-checkbox col-xs-12" type="checkbox" name="first_time">
 			<label for="first_time"><div class="visual-checkbox"></div>Yes! I'm excited!</label>
 		</div>
-		<input type="button" name="previous" class="previous action-button" value="Previous" />
-		<input type="button" name="next" class="next action-button" value="Next" />
+		<input type="button" class="previous action-button" value="Previous" />
+		<input type="button" class="next action-button" value="Next" />
 	</fieldset>
-	<fieldset data-progress="you">
+	<fieldset class="page" data-progress="you">
 		<h2 class="fs-title">You</h2>
 		<h3 class="fs-subtitle survey-header">What would you like to work on?</h3>
 		<%= erb :checkbox, locals: { :id => "frontend_code", :text => "Frontend" }%>
@@ -87,28 +86,41 @@
 		<input type="text" id="experience" class="slider-input" data-slider-snap="true" data-slider-range="1,4" data-slider-step="1" data-slider="true" name="experience">
 		<div class="slider-caption left">I’m completely new, can’t wait to learn!</div>
 		<div class="slider-caption right">I’m ready to get a job in my favorite field. </div>
-		<input type="button" name="previous" class="previous action-button" value="Previous" />
-		<input type="button" name="next" class="next action-button" value="Next" />
+		<input type="button" class="previous action-button" value="Previous" />
+		<input type="button" class="next action-button" value="Next" />
 	</fieldset>
-	<fieldset data-progress="thoughts">
+	<fieldset class="page" data-progress="thoughts">
 		<h2 class="fs-title">Thoughts</h2>
 		<h3 class="fs-subtitle survey-header">What do you hope to achieve at Unhackathon?</h3>
 		<textarea id="achieve_text" name="achieve_text"></textarea>
 		<h3 class="fs-subtitle survey-header">What new skill or technology would you like to learn or try at Unhackathon?</h3>
 		<textarea id="new_skill_text" name="new_skill_text"></textarea>
-		<input type="button" name="previous" class="previous action-button" value="Previous" />
-		<input type="button" name="next" class="next action-button" value="Next" />
+		<input type="button" class="previous action-button" value="Previous" />
+		<input type="button" class="next action-button" value="Next" />
 	</fieldset>
-	<fieldset data-progress="thoughts">
+	<fieldset class="page" data-progress="thoughts">
 		<h2 class="fs-title">Thoughts</h2>
 		<h3 class="fs-subtitle survey-header"><div>If you’ve been to a hackathon before, how do you think hackathons should be improved?</div><div class="alternative-indicator">or</div><div> If this is your first hackathon, how do you imagine the ideal hackathon?</div></h3>
 		<textarea id="improve_text" name="improve_text"></textarea>
 		<h3 class="fs-subtitle survey-header">What do you envision using your skills for <br>in the future? </h3>
-		<textarea id="improve_text" name="improve_text"></textarea>
-		<input type="button" name="previous" class="previous action-button" value="Previous" />
+		<textarea id="future_text" name="future_text"></textarea>
+		<input type="button" class="previous action-button" value="Previous" />
 		<input type="button" name="submit" class="submit action-button" value="Submit" />
 	</fieldset>
+	<div class="page" id="success-page">
+		<h2 class="fs-title">Success!</h2>
+		<p>You have successfully signed up for unhackathon. You should be recieving a confirmation email shortly.</p>
+		<p>We are reviewing applications as they come in, so you should hear from us within a week. If you have any trouble, feel free to email us at <a href="mailto:support@unhackathon.org">support@unhackathon.org.</a> </p>
+		<p>If you have any more ideas about hackathons or life in general, email us at ideas@unhackathon.org. We look forward to hearing from you! </p>
+	</div>
+	<div class="page" id="failure-page">
+		<h2 class="fs-title">Oh no!</h2>
+		<p>It looks like something has gone wrong with your signup.</p>
+		<p>The error is: <span class="error"></span></p>
+		<p>Please contact us at <a href="mailto:support@unhackathon.org">support@unhackathon.org.</a> and we'll get everything sorted out</p>
+	</div>
 </form>
+
 </div>
 <div class="bottom">
 	<div class="about">

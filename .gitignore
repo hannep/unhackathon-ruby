@@ -1,1 +1,2 @@
 config/mail.rb
+db/database.sqlite3
