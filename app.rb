@@ -16,8 +16,13 @@ post "/create_signup" do
   # get signups from 'different' emails that are actually the same.
   email = params[:email].gsub(/\+.*@/, "@")
   old_signup = Signup.find_by email: email
-  if old_signup != nil and old_signup.is_validated then
-    return "Failure: email already exists"
+  if old_signup != nil then
+    if old_signum.is_validated then
+      return "Failure: email already exists"
+    end
+    s = old_signup
+  else
+    s = Signup.new(params)
   end
   s = Signup.new(params)
   s.email = email
