@@ -115,4 +115,4 @@ Temporary Items
 
 # Our configuration
 /config/mail.rb
-/config/database.sqlite3
+/db/database.sqlite3

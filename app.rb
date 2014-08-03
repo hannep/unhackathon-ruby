@@ -18,7 +18,7 @@ post "/create_signup" do
   old_signup = Signup.find_by email: email
   if old_signup != nil then
     if old_signup.is_validated then
-      return "Failure: email already exists"
+      return [400, "Email already exists"]
     end
     s = old_signup
   else
