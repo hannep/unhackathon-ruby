@@ -12,17 +12,27 @@ end
 
 post "/create_signup" do
 	params.inspect
+  #We have to stop the part of the username after the plus, so we don't
+  # get signups from 'different' emails that are actually the same.
+  email = params[:email].gsub(/\+.*@/, "@")
+  old_signup = Signup.find_by email: email
+  if old_signup != nil and old_signup.is_validated then
+    return "Failure: email already exists"
+  end
   s = Signup.new(params)
+  s.email = email
   s.is_validated = false
   s.validation_token = SecureRandom.urlsafe_base64(32)
   s.save if s
 
   url = "#{request.base_url}/validate?id=#{s.id}&token=#{s.validation_token}"
+  email_text = erb :email, locals: { :url=> url }, layout: false
+
   mail = Mail.new do
     from    'team@unhackathon.org'
-    to      'johnsdaniels@gmail.com'
-    subject 'This is a test email'
-    body    "GO here to confirm #{url}"
+    to      email
+    subject 'Thanks for your interest in unhackathon!'
+    body    email_text
   end
 
   mail.deliver!
