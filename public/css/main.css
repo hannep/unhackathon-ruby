@@ -18,6 +18,28 @@ body {
 	background-size: cover;
 }
 
+#logo {
+    width: 160px;
+    height: 160px;
+    background-size: 100px 100px;
+    background-color: #cc0000;
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    color: #f8f8f8;
+    color:white;
+    padding: 7px;
+    font-size: 12px;
+}
+
+#logo > .name {
+    font-size: 37px;
+    line-height: 34px;
+    font-family: chunkFive;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
 .chunk-five {
     font-family: chunkFive;
 }
@@ -99,7 +121,7 @@ body {
 /*buttons*/
 #msform .action-button {
 	width: 100px;
-	background: #990000;
+	background: #cc0000;
 	font-weight: bold;
 	color: white;
 	border: 0 none;
@@ -109,7 +131,7 @@ body {
 	margin: 10px 5px;
 }
 #msform .action-button:hover, #msform .action-button:focus {
-	box-shadow: 0 0 0 2px white, 0 0 0 3px #990000;
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #cc0000;
 }
 /*headings*/
 .fs-title {
@@ -178,7 +200,7 @@ body {
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
 #progressbar li.active:before,  #progressbar li.active:after{
-	background: #990000;
+	background: #cc0000;
 	color: white;
 }
 
@@ -349,7 +371,7 @@ div.checkbox-container {
     left: 0;
     border-radius: 4px;
 
-    background: #bb0000;
+    background: #cc0000;
     border: 1 px solid gray;
 }
 
