@@ -28,8 +28,9 @@ body {
     top: 20px;
     color: #f8f8f8;
     color:white;
-    padding: 7px;
+    padding: 8px;
     font-size: 12px;
+    z-index: 1;
 }
 
 #logo > .name {
@@ -226,7 +227,7 @@ body{
 	height: 100%;
 }
 
-.top{
+.top {
 	width:100vw;
 	height:100vh;
     min-height: 650px;
@@ -234,6 +235,17 @@ body{
     background-size: 100vw;
     background-position: center 0px;
     padding-top: 67px;
+    position: relative;
+}
+
+.scroll-down-arrow {
+    text-align: center;
+    font-size: 21px;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    color: #cc0000;
 }
 
 @media(max-width: 1100px) {
