@@ -355,6 +355,10 @@ body{
     margin-bottom: 5px;
 }
 
+.survey-header.initial-question {
+    font-weight: 15px;
+}
+
 .checkboxes{
 	text-align: left;
     margin-bottom: 10px;

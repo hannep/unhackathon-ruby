@@ -17,9 +17,9 @@
 	<!-- fieldsets -->
 	<fieldset class="page" data-progress="hello">
 		<h2 class="fs-title large">Welcome!</h2>
-		<h3 class="fs-subtitle survey-header large">What's the best thing about hackathons?</h3>
-		<input type="text" name="best" placeholder="Tell us! This empty box is calling to you." data-validator="required"/>
-		<input type="button" class="next action-button big-btn" value="Sign Me Up!" />
+		<h3 class="fs-subtitle survey-header initial-question">What's the best thing about hackathons?</h3>
+		<input type="text" name="best" placeholder="Tell us! This empty box is calling to you." data-validator="notEmail"/>
+		<input type="button" class="next action-button big-btn" value="Let's get started!" />
 	</fieldset>
 	<fieldset class="page" id="contact-info" data-progress="contact">
 		<h2 class="fs-title">Let's stay in touch.</h2>
@@ -60,7 +60,7 @@
 	</fieldset>
 	<fieldset class="page" data-progress="you">
 		<h2 class="fs-title">You</h2>
-		<div>Unhackathon doesn't require any specific experience or interest. Instead, we're looking for thoughtful and creative hackers who are excited about learning and building.</div>
+		<p>As we review applications, we'll be looking for thoughtful hackers who are excited about learning and building in a friendly community. </p><p>Unhackathon doesn't require any specific experience or field of interest, so don't worry about not being a rockstar-ninja-guru. <br> We like you already.</p>
 		
 		<h3 class="fs-subtitle survey-header">Will this be your first hackathon?</h3>
 		<div class="checkbox-container">
@@ -72,7 +72,7 @@
 	</fieldset>
 	<fieldset class="page" data-progress="you">
 		<h2 class="fs-title">You</h2>
-		<h3 class="fs-subtitle survey-header">What would you like to work on?</h3>
+		<h3 class="fs-subtitle survey-header">What are you interested in working on?</h3>
 		<%= erb :checkbox, locals: { :id => "frontend_code", :text => "Frontend" }%>
 		<%= erb :checkbox, locals: { :id => "hardware_hacking", :text => "Hardware" }%>
 		<%= erb :checkbox, locals: { :id => "user_interface", :text => "UX" }%>
@@ -83,14 +83,14 @@
 		<%= erb :checkbox, locals: { :id => "data_science", :text => "Data Science" }%>
 		<div class="checkbox-container col-xs-12">
 			<input id="something_else" class="fancy-checkbox" type="checkbox">
-			<label for="something_else"><div class="visual-checkbox"></div>Something else (you're awesome!):</label>
+			<label for="something_else"><div class="visual-checkbox"></div>Something else (you're awesome!)</label>
 		</div>
 		<input type="text" id="other-interest" name="other_interest" placeholder="Underwater basket weaving">
 		<div class="clearfix"></div>
 		<h3 class="fs-subtitle survey-header">How would you rate your level of experience?</h3>
 		<input type="text" id="experience" class="slider-input" data-slider-snap="true" data-slider-range="1,4" data-slider-step="1" data-slider="true" name="experience">
 		<div class="slider-caption left">I’m completely new, can’t wait to learn!</div>
-		<div class="slider-caption right">I’m ready to get a job in my favorite field. </div>
+		<div class="slider-caption right">I feel ready to get a job in my favorite field. </div>
 		<input type="button" class="previous action-button" value="Previous" />
 		<input type="button" class="next action-button" value="Next" />
 	</fieldset>
@@ -107,7 +107,7 @@
 		<h2 class="fs-title">Thoughts</h2>
 		<h3 class="fs-subtitle survey-header"><div>If you’ve been to a hackathon before, how do you think hackathons should be improved?</div><div class="alternative-indicator">or</div><div> If this is your first hackathon, how do you imagine the ideal hackathon?</div></h3>
 		<textarea id="improve_text" name="improve_text"></textarea>
-		<h3 class="fs-subtitle survey-header">What do you envision using your skills for <br>in the future? </h3>
+		<h3 class="fs-subtitle survey-header">What would you like to your skills for <br>in the future? </h3>
 		<textarea id="future_text" name="future_text"></textarea>
 		<input type="button" class="previous action-button" value="Previous" />
 		<input type="button" name="submit" class="submit action-button" value="Submit" />

@@ -16,8 +16,13 @@ var validators = {
 	},
 	email: function (text) {
 		// We're not going to try very hard at this, other than making sure it's not insane
-		var email_re = /.+@[a-z0-9\-_]+/i;
+		var email_re = /^.+@[a-z0-9\-_.]+$/i;
 		return email_re.test(text)
+	},
+	notEmail: function (text) {
+		// 
+		var email_re = /^[a-z0-9\-_]+@[a-z0-9\-_.]+$/i;
+		return !email_re.test(text) && validators.required(text); 
 	},
 	confirmEmail: function(text) {
 		return text === $("#msform input[name='email']").val() && validators.email(text);
