@@ -92,6 +92,10 @@ body {
 	text-align: center;
 	position: relative;
 }
+
+.tall #msform .page {
+    background-size: 167vh;
+}
 #msform .page {
 	border: 0 none;
 	border-radius: 3px;
@@ -227,8 +231,11 @@ body{
 	height: 100%;
 }
 
+.tall .top {
+    background-size: 167vh;
+}
+
 .top {
-	width:100vw;
 	height:100vh;
     min-height: 650px;
     background-image: url("../img/background.jpg");
@@ -246,16 +253,6 @@ body{
     left: 0;
     right: 0;
     color: #cc0000;
-}
-
-@media(max-width: 1100px) {
-    .top, #confirmed .blurred-info, #msform .page  {
-        background-size: 1100px;
-    }
-
-    #msform .page {
-
-    }
 }
 
 .bottom{

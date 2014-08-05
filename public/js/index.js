@@ -164,6 +164,13 @@ $(".submit").click(function(){
 	return false;
 });
 
+function computeTall() {
+	console.log("hi");
+	$("body").toggleClass("tall", window.innerHeight * 950/572 > window.innerWidth);
+}
+computeTall();
+$(window).on("resize", computeTall);
+
 $(document).ready(function() {
     $('.bool-slider .inset .control').click(function() {
         if (!$(this).parent().parent().hasClass('disabled')) {
