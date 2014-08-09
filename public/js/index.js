@@ -145,7 +145,7 @@ $(".submit").click(function(){
 	var current_fs = $(this).parent();
 
 	var json = {}
-	$("#msform").find("input[type!=checkbox], textarea").each(function (index, element) {
+	$("#msform").find("input[type!=checkbox], textarea, select").each(function (index, element) {
 		json[$(element).attr("name")] = $(element).val();
 	});
 	$("#msform").find("input[type=checkbox]").each(function (index, element) {
