@@ -3,7 +3,8 @@
         <input type="hidden" name="id" value="<%= id %>">
         <input type="hidden" name="token" value="<%= token %>">
         <fieldset class="page" data-progress="you">
-        <h2 class="fs-title large">Shirt Size!</h2>
+        <h2 class="fs-title large">Thanks for confirming</h2>
+        <p>Just one more thing! It would be great if you'd reselect your shirt size so we can get our order started. They're guaranteed to be awesome.</p>
         <h3 class="fs-subtitle survey-header">What's your shirt size? Please note that the women's tend to run a little small.</h3>
             <select id="shirt_size" name="shirt_size" data-validator="tshirt">
                 <option value="invalid">Pick a size</option>
@@ -17,13 +18,12 @@
                 <option value="Unisex XL">Unisex XL</option>
                 <option value="Unisex XXL">Unisex XXL</option>
             </select><br> 
-            <input type="submit" value="Confirm" name="submit" class="submit action-button">
+            <input type="submit" value="Done!" name="submit" class="submit action-button">
         </fieldset>
         <div class="page" id="success-page">
-            <h2 class="fs-title">Success!</h2>
-            <p>You have successfully applied for unhackathon. You should be recieving a confirmation email shortly.</p>
-            <p>We are reviewing applications as they come in, so you should hear from us within a week. If you have any trouble, feel free to email us at <a href="mailto:support@unhackathon.org">support@unhackathon.org.</a> </p>
-            <p>If you have any more ideas about hackathons or life in general, email us at ideas@unhackathon.org. We look forward to hearing from you! </p>
+            <h2 class="fs-title">You're all set!</h2>
+            <p>Can't wait to see you at Unhackathon in September. If you have any questions, always feel free to email us at <a href="mailto:team@unhackathon.org">team@unhackathon.org</a>. </p>
+            <p>If you have any more ideas about hackathons or life in general, email us at <a href="mailto:ideas@unhackathon.org">ideas@unhackathon.org</a>. We look forward to hearing from you! </p>
         </div>
         <div class="page" id="failure-page">
             <h2 class="fs-title">Oh no!</h2>
