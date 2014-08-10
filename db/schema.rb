@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140810171958) do
+ActiveRecord::Schema.define(version: 20140810180423) do
 
   create_table "signups", force: true do |t|
     t.string  "name"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20140810171958) do
     t.text    "improve_text"
     t.text    "future_text"
     t.string  "transit"
+    t.boolean "cancelled",        default: false
   end
 
 end

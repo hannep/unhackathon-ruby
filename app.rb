@@ -91,6 +91,19 @@ module Unhackathon
       end
     end
 
+    get "/cancel" do
+      token = params[:token]
+      id = params[:id].to_i
+      signup = Signup.find(id)
+      if signup.validation_token == token then
+        signup.cancelled = true
+        signup.save
+        erb :cancelled
+      else
+        "Failure"
+      end
+    end
+
     get "/signups" do 
     	@signups = Signup.all
     	erb :signups
