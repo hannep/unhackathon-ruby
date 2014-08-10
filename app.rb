@@ -84,6 +84,7 @@ module Unhackathon
       signup = Signup.find(id)
       if signup.validation_token == token then
         signup.transit = transit
+        signup.cancelled = false
         signup.save
         erb :tshirt, locals: {:token => token, :id => id}
       else
