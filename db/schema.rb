@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140803184658) do
+ActiveRecord::Schema.define(version: 20140810171958) do
 
   create_table "signups", force: true do |t|
     t.string  "name"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20140803184658) do
     t.text    "new_skill_text"
     t.text    "improve_text"
     t.text    "future_text"
+    t.string  "transit"
   end
 
 end

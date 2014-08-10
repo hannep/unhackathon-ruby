@@ -80,8 +80,11 @@ module Unhackathon
     get "/tshirt" do 
       token = params[:token]
       id = params[:id].to_i
+      transit = params[:transit]
       signup = Signup.find(id)
       if signup.validation_token == token then
+        signup.transit = transit
+        signup.save
         erb :tshirt, locals: {:token => token, :id => id}
       else
         "Failure"
