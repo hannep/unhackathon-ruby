@@ -86,16 +86,20 @@ function moveTo(current_fs, next_fs) {
 	});
 }
 
+function validateAll(fieldset) {
+	var ret_valid = true;
+	fieldset.find("input,select").each(function (index, element) {
+		var isValid = validateInput(element);
+		ret_valid = ret_valid && isValid;
+	});
+	return ret_valid;
+}
+
 $(".next").click(function(){
-	var can_proceed = true;
-	
 	current_fs = $(this).parent();
 	next_fs = $(this).parent().next();
 
-	current_fs.find("input,select").each(function (index, element) {
-		var isValid = validateInput(element);
-		can_proceed = can_proceed && isValid;
-	});
+	var can_proceed = validateAll(current_fs);
 
 	if(can_proceed){
 		moveToNext(current_fs);
@@ -141,8 +145,13 @@ $("#something_else").on("change", function(event) {
 	$("#other-interest").toggle($(event.currentTarget).prop("checked"));
 })
 
-$(".submit").click(function(){
+$(".submit").click(function(event){
+	event.preventDefault();
 	var current_fs = $(this).parent();
+	var can_submit = validateAll(current_fs);
+	if (!can_submit) {
+		return;
+	}
 
 	var json = {}
 	$("#msform").find("input[type!=checkbox], textarea, select").each(function (index, element) {
@@ -154,7 +163,7 @@ $(".submit").click(function(){
 	delete json["undefined"]
 	delete json.submit;
 	console.log(json);
-	$.post("/create_signup", json).done(function(data){
+	$.post($("#msform").attr("action"), json).done(function(data){
 		moveTo(current_fs, $("#success-page"));
 	}).fail(function (response) {
 		var errorPage = $("#failure-page");

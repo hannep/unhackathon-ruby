@@ -1,0 +1,35 @@
+<div id="confirmed" class="top">
+    <form id="msform" action="tshirt">
+        <input type="hidden" name="id" value="<%= id %>">
+        <input type="hidden" name="token" value="<%= token %>">
+        <fieldset class="page" data-progress="you">
+        <h2 class="fs-title large">Shirt Size!</h2>
+        <h3 class="fs-subtitle survey-header">What's your shirt size? Please note that the women's tend to run a little small.</h3>
+            <select id="shirt_size" name="shirt_size" data-validator="tshirt">
+                <option value="invalid">Pick a size</option>
+                <option value="Women's XS">Women's XS</option>
+                <option value="Women's S">Women's S</option>
+                <option value="Women's M">Women's M</option>
+                <option value="Women's L">Women's L</option>
+                <option value="Unisex S">Unisex S</option>
+                <option value="Unisex M">Unisex M</option>
+                <option value="Unisex L">Unisex L</option>
+                <option value="Unisex XL">Unisex XL</option>
+                <option value="Unisex XXL">Unisex XXL</option>
+            </select><br> 
+            <input type="submit" value="Confirm" name="submit" class="submit action-button">
+        </fieldset>
+        <div class="page" id="success-page">
+            <h2 class="fs-title">Success!</h2>
+            <p>You have successfully applied for unhackathon. You should be recieving a confirmation email shortly.</p>
+            <p>We are reviewing applications as they come in, so you should hear from us within a week. If you have any trouble, feel free to email us at <a href="mailto:support@unhackathon.org">support@unhackathon.org.</a> </p>
+            <p>If you have any more ideas about hackathons or life in general, email us at ideas@unhackathon.org. We look forward to hearing from you! </p>
+        </div>
+        <div class="page" id="failure-page">
+            <h2 class="fs-title">Oh no!</h2>
+            <p>It looks like something has gone wrong with your signup.</p>
+            <p>The error is: <span class="error"></span></p>
+            <p>Please contact us at <a href="mailto:support@unhackathon.org">support@unhackathon.org.</a> and we'll get everything sorted out</p>
+        </div>
+    </form>
+</div>

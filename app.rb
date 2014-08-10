@@ -62,6 +62,32 @@ module Unhackathon
       end
     end
 
+    post "/tshirt" do
+      token = params[:token]
+      id = params[:id].to_i
+      shirt_size = params[:shirt_size]
+      signup = Signup.find(id)
+      if signup.validation_token == token then
+        signup.shirt_size = shirt_size
+        signup.save
+        "Success"
+      else
+        [400, "Invalid Token"]
+      end
+
+    end
+
+    get "/tshirt" do 
+      token = params[:token]
+      id = params[:id].to_i
+      signup = Signup.find(id)
+      if signup.validation_token == token then
+        erb :tshirt, locals: {:token => token, :id => id}
+      else
+        "Failure"
+      end
+    end
+
     get "/signups" do 
     	@signups = Signup.all
     	erb :signups
