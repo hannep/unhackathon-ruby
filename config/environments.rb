@@ -11,8 +11,7 @@ module Unhackathon
     end
 
     configure :development do 
-    	set :database, {adapter: "sqlite3", database: "db/database.sqlite3"}
-
+    	set :database, {adapter: "sqlite3", database: "db/database.sqlite3"} 
     end
 
     configure do 

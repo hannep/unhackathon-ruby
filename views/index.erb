@@ -73,14 +73,14 @@
 	<fieldset class="page" data-progress="you">
 		<h2 class="fs-title">You</h2>
 		<h3 class="fs-subtitle survey-header">What are you interested in working on?</h3>
-		<%= erb :checkbox, locals: { :id => "frontend_code", :text => "Frontend" }%>
-		<%= erb :checkbox, locals: { :id => "hardware_hacking", :text => "Hardware" }%>
-		<%= erb :checkbox, locals: { :id => "user_interface", :text => "UX" }%>
-		<%= erb :checkbox, locals: { :id => "design", :text => "Design" }%>
-		<%= erb :checkbox, locals: { :id => "ideas", :text => "Ideas" }%>
-		<%= erb :checkbox, locals: { :id => "mobile_apps", :text => "Mobile" }%>
-		<%= erb :checkbox, locals: { :id => "game_dev", :text => "Game Dev" }%>
-		<%= erb :checkbox, locals: { :id => "data_science", :text => "Data Science" }%>
+		<%== erb :checkbox, locals: { :id => "frontend_code", :text => "Frontend" }%>
+		<%== erb :checkbox, locals: { :id => "hardware_hacking", :text => "Hardware" }%>
+		<%== erb :checkbox, locals: { :id => "user_interface", :text => "UX" }%>
+		<%== erb :checkbox, locals: { :id => "design", :text => "Design" }%>
+		<%== erb :checkbox, locals: { :id => "ideas", :text => "Ideas" }%>
+		<%== erb :checkbox, locals: { :id => "mobile_apps", :text => "Mobile" }%>
+		<%== erb :checkbox, locals: { :id => "game_dev", :text => "Game Dev" }%>
+		<%== erb :checkbox, locals: { :id => "data_science", :text => "Data Science" }%>
 		<div class="checkbox-container col-xs-12">
 			<input id="something_else" class="fancy-checkbox" type="checkbox">
 			<label for="something_else"><div class="visual-checkbox"></div>Something else (you're awesome!)</label>

@@ -19,6 +19,7 @@ GEM
     browser (0.6.0)
     builder (3.2.2)
     daemons (1.1.9)
+    erubis (2.7.0)
     eventmachine (1.0.3)
     i18n (0.6.11)
     json (1.8.1)
@@ -26,7 +27,6 @@ GEM
       mime-types (>= 1.16, < 3)
     mime-types (2.3)
     minitest (5.4.0)
-    pg (0.17.1)
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
@@ -75,8 +75,8 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   browser
+  erubis
   mail (~> 2.6.1)
-  pg
   rake
   shotgun
   sinatra

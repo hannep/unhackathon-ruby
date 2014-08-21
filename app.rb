@@ -5,12 +5,15 @@ require 'sinatra/base'
 require './config/environments' #database configuration
 require './models/model'        #Model class
 require 'mail'
+require 'erubis'
+
 
 module Unhackathon
   class Application < Sinatra::Application
     set :app_file, __FILE__
-
+    set :erb, :escape_html => true
     get "/" do
+      s = Signup.new
     	erb :index
     end
 
@@ -67,14 +70,13 @@ module Unhackathon
       id = params[:id].to_i
       shirt_size = params[:shirt_size]
       signup = Signup.find(id)
-      if signup.validation_token == token then
+      if signup.validation_token == token  && signup.can_confirm_or_cancel then
         signup.shirt_size = shirt_size
         signup.save
         "Success"
       else
         [400, "Invalid Token"]
       end
-
     end
 
     get "/tshirt" do 
@@ -82,11 +84,29 @@ module Unhackathon
       id = params[:id].to_i
       transit = params[:transit]
       signup = Signup.find(id)
-      if signup.validation_token == token then
+      if signup.validation_token == token && signup.can_confirm_or_cancel then
         signup.transit = transit
-        signup.cancelled = false
+        signup.confirmed!
         signup.save
         erb :tshirt, locals: {:token => token, :id => id}
+      else
+        "Failure"
+      end
+    end
+
+    get "/confirm" do 
+      token = params[:token]
+      id = params[:id].to_i
+      transit = params[:transit]
+      signup = Signup.find(id)
+      if signup.validation_token == token && signup.can_confirm_or_cancel then
+        if signup.shirt_size == '' || signup.shirt_size == nil then
+          return redirect to("/tshirt?token=#{token}&id=#{id}&transit=#{transit}")
+        end
+        signup.transit = transit
+        signup.confirmed!
+        signup.save
+        erb :confirm_going
       else
         "Failure"
       end
@@ -96,8 +116,8 @@ module Unhackathon
       token = params[:token]
       id = params[:id].to_i
       signup = Signup.find(id)
-      if signup.validation_token == token then
-        signup.cancelled = true
+      if signup.validation_token == token && signup.can_confirm_or_cancel then
+        signup.cancelled!
         signup.save
         erb :cancelled
       else
