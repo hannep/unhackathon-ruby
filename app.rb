@@ -115,6 +115,12 @@ module Unhackathon
     get "/cancel" do
       token = params[:token]
       id = params[:id].to_i
+      erb :confirm_cancel, locals: {:token => token, :id => id}
+    end
+
+    get "/cancel_confirmed" do
+      token = params[:token]
+      id = params[:id].to_i
       signup = Signup.find(id)
       if signup.validation_token == token && signup.can_confirm_or_cancel then
         signup.cancelled!
