@@ -1,9 +1,8 @@
 require 'erubis'
 
-ENV['RACK_ENV'] = 'development'
-
 require './app'
 
+ActiveRecord::Base.logger.level = 1
 module Unhackathon
   class SignupEmailer
     def initialize(signup)
@@ -56,9 +55,6 @@ module Unhackathon
     end
 
     def assert_valid_signup
-      if !@signup.is_validated then
-        raise "Cannot accept/reject someone who isn't validated"
-      end
       if @signup.rejected_or_accepted then
         raise "Cannot accept/reject someone twice"
       end
