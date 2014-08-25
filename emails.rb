@@ -82,7 +82,7 @@ module Unhackathon
 
     def send_highschool_rejection
       assert_valid_signup
-      send_email mail_subject: "Your application has been rejected",
+      send_email mail_subject: "Your Unhackathon Application Decision",
                  html_template: "highschool_rejection",
                  text_template: "highschool_rejection_text",
                  email_from: 'Team @ Unhackathon <team@unhackathon.org>'
