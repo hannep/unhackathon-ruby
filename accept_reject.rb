@@ -9,14 +9,17 @@ CSV.foreach(ARGV[0]) do |row|
   id = row[1].to_i
   signup = Signup.find(id)
   emailer = Unhackathon::SignupEmailer.new(signup)
-  reject_or_accept = row[0]
+  action_to_perform = row[0]
   begin
-    if reject_or_accept == 'accept' then
+    if action_to_perform == 'accept' then
       puts "sending acceptance to: #{signup.email}"
       emailer.send_acceptance
-    elsif reject_or_accept == 'reject'
+    elsif action_to_perform == 'reject'
       puts "sending rejection to: #{signup.email}"
       emailer.send_rejection
+    elsif action_to_perform == 'highschool'
+      puts "sending highschool rejection to: #{signup.email}"
+      emailer.send_highschool_rejection
     else
       puts "skipping: #{signup.email}"
     end

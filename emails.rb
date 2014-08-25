@@ -34,13 +34,13 @@ module Unhackathon
       Erubis::Eruby.new(template_text).result(binding())
     end
 
-    def send_email(mail_subject:, html_template:, text_template:)
+    def send_email(email_from:, mail_subject:, html_template:, text_template:)
       html_body = render_body(html_template)
       text_body = render_body(text_template)
       to_email = @email
       mail = Mail.deliver do
         to      to_email
-        from    'Hanne @ Unhackathon <hanne@unhackathon.org>'
+        from    email_from
         subject mail_subject
 
         text_part do
@@ -64,17 +64,30 @@ module Unhackathon
       assert_valid_signup      
       send_email mail_subject: "You're in! Your Unhackathon application has been accepted.",
                  html_template: "acceptance",
-                 text_template: "acceptance_text"
+                 text_template: "acceptance_text",
+                 email_from: 'Hanne @ Unhackathon <hanne@unhackathon.org>'
       @signup.accepted!
       @signup.save
     end
 
     def send_rejection
       assert_valid_signup
-      send_email mail_subject: "Your application has been rejected",
-                 html_template: "acceptance",
-                 text_template: "acceptance_text"
+      send_email mail_subject: "Your Unhackathon Application Decision",
+                 html_template: "rejection",
+                 text_template: "rejection_text",
+                 email_from: 'Team @ Unhackathon <team@unhackathon.org>'
       @signup.rejected!
+      @signup.save
+    end
+
+    def send_highschool_rejection
+      assert_valid_signup
+      send_email mail_subject: "Your application has been rejected",
+                 html_template: "highschool_rejection",
+                 text_template: "highschool_rejection_text",
+                 email_from: 'Team @ Unhackathon <team@unhackathon.org>'
+      @signup.rejected!
+      @signup.is_highschool = true
       @signup.save
     end
   end

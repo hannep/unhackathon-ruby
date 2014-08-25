@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140819201933) do
+ActiveRecord::Schema.define(version: 20140825000245) do
 
   create_table "signups", force: true do |t|
     t.string  "name"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20140819201933) do
     t.string  "transit"
     t.boolean "cancelled",        default: false
     t.string  "status",           default: "none"
+    t.boolean "is_highschool",    default: false
   end
 
 end
