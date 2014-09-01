@@ -31,7 +31,6 @@ module Unhackathon
       else
         s = Signup.new(params)
       end
-      s = Signup.new(params)
       s.email = email
       s.is_validated = false
       s.validation_token = SecureRandom.urlsafe_base64(32)
