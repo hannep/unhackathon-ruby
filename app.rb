@@ -17,8 +17,12 @@ module Unhackathon
     	erb :index
     end
 
+    get "/mentors" do
+      s = Signup.new
+      erb :mentors
+    end
+
     post "/create_signup" do
-    	params.inspect
       #We have to stop the part of the username after the plus, so we don't
       # get signups from 'different' emails that are actually the same.
       email = params[:email].gsub(/\+.*@/, "@")
@@ -49,6 +53,11 @@ module Unhackathon
       mail.deliver!
 
       "Success"
+    end
+
+    post "/mentor_signup" do
+      signup = MentorSignup.new(params)
+      signup.save
     end
 
     get "/validate" do 

@@ -11,7 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140825000245) do
+ActiveRecord::Schema.define(version: 20140901204025) do
+
+  create_table "mentor_signups", force: true do |t|
+    t.string  "first_name"
+    t.string  "last_name"
+    t.string  "email"
+    t.string  "cell_number"
+    t.string  "company"
+    t.string  "software_skills"
+    t.string  "design_skills"
+    t.string  "hardware_skills"
+    t.string  "other_skills"
+    t.boolean "wants_to_judge"
+    t.boolean "sunday0"
+    t.boolean "sunday1"
+    t.boolean "sunday2"
+    t.boolean "sunday3"
+    t.boolean "sunday4"
+    t.boolean "saturday0"
+    t.boolean "saturday1"
+    t.boolean "saturday2"
+    t.boolean "saturday3"
+    t.boolean "saturday4"
+    t.boolean "saturday5"
+    t.boolean "saturday6"
+    t.boolean "saturday7"
+  end
 
   create_table "signups", force: true do |t|
     t.string  "name"

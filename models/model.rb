@@ -36,3 +36,6 @@ class Signup < ActiveRecord::Base
 		self.accepted? || self.confirmed? || self.scheduled?
 	end
 end
+
+class MentorSignup < ActiveRecord::Base
+end

@@ -125,7 +125,7 @@ body {
 }
 /*inputs*/
 #msform input {
-	padding: 15px;
+	padding: 13px;
 	border: 1px solid #ccc;
 	border-radius: 3px;
 	margin-bottom: 10px;
@@ -364,6 +364,14 @@ body{
     margin-bottom: 5px;
 }
 
+.checkbox-survey-header {
+    margin-top: 5px;
+}
+
+.light-survey-header {
+    margin-bottom: 5px;
+}
+
 .survey-header.initial-question {
     font-weight: 15px;
 }
@@ -372,6 +380,12 @@ body{
 	text-align: left;
     margin-bottom: 10px;
     margin-top: 10px;
+}
+
+.checkboxes-short {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: left;
 }
 
 div.checkbox-container {
@@ -498,6 +512,11 @@ div.checkbox-container {
     color: #2C3E50;
     font-size: 11px;
     height: 70px;
+}
+
+#msform fieldset textarea.short-text {
+    height: 50px;
+    font-size: 13px;
 }
 
 .big-btn{

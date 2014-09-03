@@ -1,0 +1,80 @@
+<div id="logo">
+    <div class="name">Un<br>hack<br>athon</div>
+    <div class="date">Sept. 20-21</div>
+    <div class="place">Stony Brook University</div>
+</div>
+<div class="top">
+<!-- multistep form -->
+<form id="msform" action="/mentor_signup">
+    <!-- progressbar -->
+    <ul id="progressbar">
+        <li id="hello-progress" class="active">Hello</li>
+        <li id="contact-info-progress">Contact Info</li>
+        <li id="fields-of-interest-progress">Fields of Interest</li>
+        <li id="availability-progress">Availability</li>
+    </ul>
+    <!-- fieldsets -->
+    <fieldset class="page" data-progress="hello">
+        <h2 class="fs-title large">Hello!</h2>
+        <p>Hi! Thank you so much for being a mentor at Unhackathon. Since Unhackathon’s primary goal is learning, our mentor team will be the most important element of the event. We’d like to encourage our hackers to experiment in any field that interests them, and to ask questions freely and productively. Although our hackers will work in teams of 4, each table will have 5 chairs - one for our mentors, so you can dig deep into code and have great discussions. </p>
+        <input type="button" class="next action-button big-btn" value="Get Started" />
+    </fieldset>
+    <fieldset class="page" data-progress="contact-info">
+        <h2 class="fs-title">Contact Information</h2>
+        <input type="text" name="first_name" placeholder="Full Name" data-validator="required"/>
+        <input type="text" name="last_name" placeholder="Last Name" data-validator="required"/>
+        <input type="text" name="email" placeholder="Email" data-validator="email"/>
+        <input type="email" id="email_confirmation" placeholder="Confirm Email" data-validator="confirmEmail"/>
+        <input type="tel" name="cell_number" placeholder="Cell Number" data-validator="phone"/>
+        <input type="tel" name="company" placeholder="Company or Organization" data-validator="required"/>
+
+        <input type="button" class="previous action-button" value="Previous" />
+        <input type="button" class="next action-button" value="Next" />
+    </fieldset>
+    <fieldset class="page" data-progress="fields-of-interest">
+        <h2 class="fs-title">Fields of interest: </h2>
+        <h3 class="fs-subtitle light-survey-header">Please list the languages, frameworks, tools, and skills you feel comfortable helping hackers with.</h3>
+        <textarea class="short-text" id="software_skills" name="software_skills" placeholder="Software"></textarea>
+        <textarea class="short-text" id="design_skills" name="design_skills" placeholder="Design"></textarea>
+        <textarea class="short-text" id="hardware_skills" placeholder="Hardware" name="hardware_skills"></textarea>
+        <textarea class="short-text" id="other_skills" name="other_skills" placeholder="Other"></textarea>
+        <div class="checkbox-container"><input id="wants_to_judge" class="fancy-checkbox" type="checkbox" name="wants_to_judge" /><label for="wants_to_judge"><div class="visual-checkbox"></div>I'm also interested in judging</label></div>
+        <input type="button" class="previous action-button" value="Previous" />
+        <input type="button" class="next action-button" value="Next" />
+    </fieldset>
+    <fieldset class="page" data-progress="availability">
+        <h2 class="fs-title">Availability</h2>
+        <h3 class="fs-subtitle light-survey-header">Please select the times you’re available to mentor at Unhackathon. We’ll have really good food (no greasy pizza, unless you have a serious craving!), transportation if you need it, great places to relax, and most importantly an inspiring group of curious and friendly hackers to teach. </h3>
+        <div class="checkboxes clearfix">
+            <h3 class="fs-subtitle survey-header checkbox-survey-header">Saturday, September 20</h3>
+            <% ["9am - 12pm", "12pm - 3pm", "3pm - 6pm", "6pm - 9pm", "9pm - 12am"].each_with_index do |time, i| %>
+            <div class="checkbox-container col-xs-6"><input id="sunday<%=i%>" class="fancy-checkbox" type="checkbox" name="sunday<%=i%>" /><label for="sunday<%=i%>"><div class="visual-checkbox"></div><%= time %></label></div>
+            <% end %>
+        </div>
+        <div class="checkboxes clearfix">
+            <h3 class="fs-subtitle survey-header checkbox-survey-header">Sunday, September 21</h3>
+            <% ["12am - 3am", "3am - 6am", "6am - 9am", "9am - 12pm", "12pm - 3pm", "3pm - 6pm", "6pm - 9pm", "9pm - 12am"].each_with_index do |time, i| %>
+            <div class="checkbox-container col-xs-6"><input id="saturday<%=i%>" class="fancy-checkbox" type="checkbox" name="saturday<%=i%>" /><label for="saturday<%=i%>"><div class="visual-checkbox"></div><%= time %></label></div>
+            <% end %>
+        </div>
+        <input type="button" class="previous action-button" value="Previous" />
+        <input type="button" name="submit" class="submit action-button" value="Submit" />
+    </fieldset>
+    <div class="page" id="success-page">
+        <h2 class="fs-title">Success!</h2>
+        <p>Thank you so much again! We’ll be in touch soon too coordinate with you further. In the meantime, email us at <a href="mailto:mentor@unhackathon.org">mentor@unhackathon.org</a>.</p>
+    </div>
+    <div class="page" id="failure-page">
+        <h2 class="fs-title">Oh no!</h2>
+        <p>It looks like something has gone wrong with your signup.</p>
+        <p>The error is: <span class="error"></span></p>
+        <p>Please contact us at <a href="mailto:support@unhackathon.org">support@unhackathon.org.</a> and we'll get everything sorted out</p>
+    </div>
+</form>
+<div class="scroll-down-arrow"><span class="glyphicon glyphicon-chevron-down"></span></div>
+</div>
+<div class="bottom">
+    <%== erb :_about %>
+</div>
+
+<!-- jQuery -->
