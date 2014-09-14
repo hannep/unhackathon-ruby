@@ -90,6 +90,25 @@ module Unhackathon
       @signup.is_highschool = true
       @signup.save
     end
+
+    def resend_accepted
+      if !@signup.accepted? then
+        raise "Cannot resend acceptance for non accepted signup"
+      end
+      send_email mail_subject: "You're in! Your Unhackathon application has been accepted.",
+                 html_template: "acceptance",
+                 text_template: "acceptance_text",
+                 email_from: 'Hanne @ Unhackathon <hanne@unhackathon.org>'
+    end
+  end
+
+  def self.resend_accepted
+    signups = Signup.where(status: "accepted")
+    signups.each do |signup|
+      SignupEmailer.new(signup).resend_accepted
+    end
   end
 end
+
+
 

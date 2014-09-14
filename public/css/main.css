@@ -18,6 +18,35 @@ body {
 	background-size: cover;
 }
 
+.sponsor-image {
+    background-repeat: no-repeat;
+    background-position: center;
+    float: left;
+    background-size: contain;
+}
+
+.sponsor-image.bloomberg {
+    background-position-y:40%;
+    background-size: 160px;
+}
+
+#major-sponsors .sponsor-image {
+    width: 400px;
+    height: 300px;
+}
+
+#minor-sponsors {
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+}
+
+#minor-sponsors .sponsor-image {
+    width: 150px;
+    height: 100px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
 #logo {
     width: 160px;
     height: 160px;

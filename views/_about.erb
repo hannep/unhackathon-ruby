@@ -90,6 +90,17 @@
                 <p>You should email us at <a href="mailto:team@unhackathon.org">team@unhackathon.org</a>. We look forward to hearing from you!  
             </div>
         </div>
-        <h2 class="chunk-five">Sponsorship</h2>
+        <h2 class="chunk-five">Sponsors</h2>
+        <div id="major-sponsors"  class="clearfix">
+            <% ["softheon", "mandrill"].each do |sponsor|%>
+                <%== erb :_sponsor, locals: {:sponsor => sponsor} %>
+            <% end %>
+        </div>
+
+        <div id="minor-sponsors" class="clearfix">
+            <% ["bloomberg", "media-radar", "digital-ocean", "google"].each do |sponsor|%>
+                <%== erb :_sponsor, locals: {:sponsor => sponsor} %>
+            <% end %>
+        </div>
         <p class="single-column">Interested in being a sponsor? We'd love to hear from you! Send us a note at <a href="mailto:sponsorship@unhackathon.org">sponsorship@unhackathon.org</a></p>
     </div>
