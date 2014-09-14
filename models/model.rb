@@ -39,3 +39,6 @@ end
 
 class MentorSignup < ActiveRecord::Base
 end
+
+class Sponsor < ActiveRecord::Base
+end

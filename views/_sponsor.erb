@@ -5,6 +5,11 @@
     .sponsor-image.<%=sponsor%>:hover{
         background-image: url("img/logos/<%=sponsor%>.png");
     }
+    @media(max-width: 400px) {
+        .sponsor-image.<%=sponsor%> {
+            background-image: url("img/logos/<%=sponsor%>.png");
+        }
+    }
 </style>
 <div class="sponsor-image <%=sponsor%>">
 </div>
