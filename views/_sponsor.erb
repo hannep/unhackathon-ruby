@@ -5,11 +5,17 @@
     .sponsor-image.<%=sponsor%>:hover{
         background-image: url("img/logos/<%=sponsor%>.png");
     }
+
+    .sponsor-preload.<%=sponsor%> {
+        background: url("img/logos/<%=sponsor%>.png") no-repeat -9999px -9999px;
+
+    }
     @media(max-width: 400px) {
         .sponsor-image.<%=sponsor%> {
             background-image: url("img/logos/<%=sponsor%>.png");
         }
     }
 </style>
+<div class="sponsor-preload <%=sponsor%>"></div>
 <div class="sponsor-image <%=sponsor%>">
 </div>
