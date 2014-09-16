@@ -31,7 +31,7 @@
                             <td valign="top" style="padding-right:9px;padding-left:9px;padding-top:0;padding-bottom:0">
                                 
                                     <a href="www.unhackathon.org" target="_blank">
-                                        <img align="left" alt="" src="http://www.unhackathon.org/img/email_top.png" width="564" style="max-width:620px;padding-bottom:0;display:inline!important;vertical-align:bottom">
+                                        <img align="left" alt="" src="http://www.unhackathon.org/img/NYCBanner.png" width="564" style="max-width:620px;padding-bottom:0;display:inline!important;vertical-align:bottom">
                                     </a>
                                     
                                 
@@ -61,49 +61,20 @@
                     <tbody><tr>
                         
                         <td valign="top" style="padding-top:9px;padding-right:18px;padding-bottom:9px;padding-left:18px">
-                        
-                            Hey <%= @name %>, <br>
-<br>
-I'm emailing you with information about getting to Unhackathon.<br>
-<br>
-<%== location_text %>
-<div style="clear:both;">Please press one of these buttons so we know what your plans are: </div></span>
+<p>Hey,</p>
+
+<p>In this email, we’ll be telling you more about transportation to the event, and getting final confirmation from you about your plans. But first — some exciting news. </p>
+
+<p>Unhackathon is moving, to the AlleyNYC coworking space in New York City! Our school venue fell through, so our friends at Alley jumped in to provide our new and seriously awesome digs. You’ll be hacking in the space many great NYC startups, including Major League Hacking, call home. The change of space has the added benefit of being more convenient - it’ll shorten bus rides and allow some students to travel by public transportation, it will allow way more mentors from the NYC area to attend, and our delicious catering options just increased by a factor of 1000. And did we mention the wonderful views out the windows of our spacious 17th floor workspace? We visited the space today, and we know it will be wonderful for both hacking and relaxing. We are so excited about the change, and we hope you are too. </p>
+
+<p>We’re in the final stages of booking our buses to the new location, so we’d appreciate it if you’d confirm once more that you’re planning on attending. We have a long waiting list of students hoping to attend Unhackathon, so if you can no longer attend, please let us know.</p>
+   
+<%= location_html %>
+
                         </td>
                     </tr>
                 </tbody></table>
                 
-            </td>
-        </tr>
-    </tbody>
-</table><table border="0" cellpadding="0" cellspacing="0" width="100%">
-    <tbody>
-        <tr>
-            <td style="padding-top:0;padding-right:18px;padding-bottom:18px;padding-left:18px" valign="top" align="center">
-                <table border="0" cellpadding="0" cellspacing="0" style="border-collapse:separate!important;border:2px solid #aa0000;border-top-left-radius:5px;border-top-right-radius:5px;border-bottom-right-radius:5px;border-bottom-left-radius:5px;background-color:#cc0000">
-                    <tbody>
-                        <tr>
-                            <td align="center" valign="middle" style="font-family:Arial;font-size:16px">
-                                <a href="<%= double_confirm_url %>" title="Yes! I still plan to be there." style="font-weight:bold;letter-spacing:normal;line-height:100%;text-align:center;text-decoration:none;color:#ffffff;padding:16px;display:block">Yes! I still plan to be there at 8:00 AM on Saturday!</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-        </tr>
-    </tbody>
-</table><table border="0" cellpadding="0" cellspacing="0" width="100%">
-    <tbody>
-        <tr>
-            <td style="padding-top:0;padding-right:18px;padding-bottom:18px;padding-left:18px" valign="top" align="center">
-                <table border="0" cellpadding="0" cellspacing="0" style="border-collapse:separate!important;border:2px solid #aa0000;border-top-left-radius:5px;border-top-right-radius:5px;border-bottom-right-radius:5px;border-bottom-left-radius:5px;background-color:#cc0000">
-                    <tbody>
-                        <tr>
-                            <td align="center" valign="middle" style="font-family:Arial;font-size:16px">
-                                <a href="<%= cancel_url %>" title="I'm sorry, it looks like I can't make it" style="font-weight:bold;letter-spacing:normal;line-height:100%;text-align:center;text-decoration:none;color:#ffffff;padding:16px;display: block">I'm sorry, it looks like I can't make it.</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
             </td>
         </tr>
     </tbody>

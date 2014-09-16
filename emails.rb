@@ -34,11 +34,31 @@ module Unhackathon
       "#{token_url('double_confirm')}"
     end
 
-    def location_text()
-      unless /^[a-z_0-9 ]+$/i.match(@location) then
+    def location_html()
+      unless /^[a-z_0-9, ]+$/i.match(@location) then
         raise "Locations can only be alphanumeric + underscores"
       end
       render_body("locations/#{@location}")
+    end
+
+    def location_text()
+      unless /^[a-z_0-9, ]+$/i.match(@location) then
+        raise "Locations can only be alphanumeric + underscores"
+      end
+      render_location_text("locations/#{@location}")
+    end
+
+    def render_location_text(file_name)
+      template_text = File.read(File.join(File.dirname(__FILE__), "emails/#{file_name}.erb"))
+      template_text = template_text.gsub("<p>", "").gsub("</p>", "").gsub("<br>", "")
+      def giant_double_confirm_button
+        return double_confirm_url
+      end
+      Erubis::Eruby.new(template_text).result(binding())
+    end
+
+    def giant_double_confirm_button
+      render_body("giant_double_confirm_button")
     end
 
     def render_body(file_name)
@@ -124,10 +144,10 @@ module Unhackathon
         puts "Skipping #{@signup.email}"
       else
         puts "Sending for #{@signup.email}"
-        send_email mail_subject: "Details about the upcoming Unhackathon",
+        send_email mail_subject: "News From Unhackathon",
                    html_template: "double_confirm",
                    text_template: "double_confirm_text",
-                   email_from: 'Hanne @ Unhackathon <hanne@unhackathon.org>'
+                   email_from: 'Team @ Unhackathon <team@unhackathon.org>'
         @signup.is_location_sent = true
         @signup.save!
       end
