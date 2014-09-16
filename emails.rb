@@ -35,7 +35,7 @@ module Unhackathon
     end
 
     def location_text()
-      unless /^[a-z_0-9]+$/i.match(@location) then
+      unless /^[a-z_0-9 ]+$/i.match(@location) then
         raise "Locations can only be alphanumeric + underscores"
       end
       render_body("locations/#{@location}")
