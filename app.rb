@@ -120,6 +120,20 @@ module Unhackathon
       end
     end
 
+    get "/double_confirm" do 
+      token = params[:token]
+      id = params[:id].to_i
+      transit = params[:transit]
+      signup = Signup.find(id)
+      if signup.validation_token == token && signup.confirmed? then
+        signup.is_double_confirmed = true
+        signup.save
+        erb :double_confirmed
+      else
+        "Failure"
+      end
+    end
+
     get "/cancel" do
       token = params[:token]
       id = params[:id].to_i

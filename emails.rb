@@ -11,6 +11,7 @@ module Unhackathon
       @name = signup.name
       @token = signup.validation_token
       @id = signup.id
+      @location = signup.location || ""
     end
 
     def base_url
@@ -27,6 +28,17 @@ module Unhackathon
 
     def cancel_url
       "#{token_url('cancel')}"
+    end
+
+    def double_confirm_url
+      "#{token_url('double_confirm')}"
+    end
+
+    def location_text()
+      unless /^[a-z_0-9]+$/i.match(@location) then
+        raise "Locations can only be alphanumeric + underscores"
+      end
+      render_body("locations/#{@location}")
     end
 
     def render_body(file_name)
@@ -100,19 +112,39 @@ module Unhackathon
                  text_template: "acceptance_text",
                  email_from: 'Hanne @ Unhackathon <hanne@unhackathon.org>'
     end
+
+    def send_double_confirmed
+      if !@signup.confirmed? then
+        raise "Cannot send double confirmation for non-confirmed signup"
+      end
+      if @location == "" then
+        raise "Cannot send double confirmation if there is no location"
+      end
+      if @signup.is_location_sent
+        puts "Skipping #{@signup.email}"
+      else
+        puts "Sending for #{@signup.email}"
+        send_email mail_subject: "Details about the upcoming Unhackathon",
+                   html_template: "double_confirm",
+                   text_template: "double_confirm_text",
+                   email_from: 'Hanne @ Unhackathon <hanne@unhackathon.org>'
+        @signup.is_location_sent = true
+        @signup.save!
+      end
+    end
   end
 
-  def self.resend_accepted
+  def resend_accepted
     signups = Signup.where(status: "accepted")
     signups.each do |signup|
       SignupEmailer.new(signup).resend_accepted
     end
   end
 
-  def self.resend_accepted
-    signups = Signup.where(status: "accepted")
+  def self.send_double_confirmed
+    signups = Signup.where(status: "confirmed")
     signups.each do |signup|
-      SignupEmailer.new(signup).resend_accepted
+      SignupEmailer.new(signup).send_double_confirmed
     end
   end
 end
