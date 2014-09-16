@@ -51,9 +51,9 @@ module Unhackathon
     def render_location_text(file_name)
       template_text = File.read(File.join(File.dirname(__FILE__), "emails/#{file_name}.erb"))
       template_text = template_text.gsub("<p>", "").gsub("</p>", "").gsub("<br>", "")
-      def giant_double_confirm_button
-        return double_confirm_url
-      end
+      giant_double_confirm_button = lambda {
+        double_confirm_url
+      }
       Erubis::Eruby.new(template_text).result(binding())
     end
 
