@@ -129,6 +129,7 @@ module Unhackathon
       if !@signup.accepted? then
         raise "Cannot resend acceptance for non accepted signup"
       end
+      puts "Sending for #{@signup.email}"
       send_email mail_subject: "You're in! Your Unhackathon application has been accepted.",
                  html_template: "acceptance",
                  text_template: "acceptance_text",
