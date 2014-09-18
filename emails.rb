@@ -137,8 +137,8 @@ module Unhackathon
       if !@signup.confirmed? then
         raise "Cannot send double confirmation for non-confirmed signup"
       end
-      if @location == "" then
-        puts "Skipping #{@signup.email}: Cannot send double confirmation if there is no location"
+      if @location == "" or @location == nil then
+        puts "Skipping #{@signup.email}: fCannot send double confirmation if there is no location"
       end
       if @signup.is_location_sent
         puts "Skipping #{@signup.email}"
