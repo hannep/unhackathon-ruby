@@ -139,8 +139,7 @@ module Unhackathon
       end
       if @location == "" or @location == nil then
         puts "Skipping #{@signup.email}: fCannot send double confirmation if there is no location"
-      end
-      if @signup.is_location_sent
+      elsif @signup.is_location_sent
         puts "Skipping #{@signup.email}"
       else
         puts "Sending for #{@signup.email}"
