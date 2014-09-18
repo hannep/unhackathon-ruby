@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140916024250) do
+ActiveRecord::Schema.define(version: 20140918051707) do
 
   create_table "mentor_signups", force: true do |t|
     t.string  "first_name"
@@ -49,11 +49,11 @@ ActiveRecord::Schema.define(version: 20140916024250) do
     t.string  "allergies"
     t.string  "drink"
     t.string  "shirt_size"
-    t.boolean "vegetarian",          default: false
-    t.boolean "vegan",               default: false
-    t.boolean "kosher",              default: false
-    t.boolean "halal",               default: false
-    t.boolean "is_validated",        default: false
+    t.boolean "vegetarian",              default: false
+    t.boolean "vegan",                   default: false
+    t.boolean "kosher",                  default: false
+    t.boolean "halal",                   default: false
+    t.boolean "is_validated",            default: false
     t.string  "validation_token"
     t.boolean "first_time"
     t.boolean "frontend_code"
@@ -72,12 +72,13 @@ ActiveRecord::Schema.define(version: 20140916024250) do
     t.text    "improve_text"
     t.text    "future_text"
     t.string  "transit"
-    t.boolean "cancelled",           default: false
-    t.string  "status",              default: "none"
-    t.boolean "is_highschool",       default: false
-    t.boolean "is_double_confirmed", default: false
+    t.boolean "cancelled",               default: false
+    t.string  "status",                  default: "none"
+    t.boolean "is_highschool",           default: false
+    t.boolean "is_double_confirmed",     default: false
     t.string  "location"
-    t.boolean "is_location_sent",    default: false
+    t.boolean "is_location_sent",        default: false
+    t.boolean "is_leftover_double_sent", default: false
   end
 
 end

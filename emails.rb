@@ -66,9 +66,11 @@ module Unhackathon
       Erubis::Eruby.new(template_text).result(binding())
     end
 
-    def send_email(email_from:, mail_subject:, html_template:, text_template:)
+    def send_email(email_from:, mail_subject:, html_template:, text_template: nil)
       html_body = render_body(html_template)
-      text_body = render_body(text_template)
+      if text_template then
+        text_body = render_body(text_template)
+      end
       to_email = @email
       mail = Mail.deliver do
         to      to_email
@@ -151,6 +153,26 @@ module Unhackathon
         @signup.save!
       end
     end
+
+    def send_leftover_double
+      if !@signup.confirmed? then
+        raise "Cannot send double confirmation for non-confirmed signup"
+      end
+      if @signup.is_double_confirmed then
+        raise "Cannot send leftover double to someone who is double confirmed"
+      end
+    
+      if @signup.is_leftover_double_sent
+        puts "Skipping #{@signup.email}"
+      else
+        puts "Sending for #{@signup.email}"
+        send_email mail_subject: "Action required: Important update from Unhackathon.",
+                   html_template: "leftover_double",
+                   email_from: 'Team @ Unhackathon <team@unhackathon.org>'
+        @signup.is_leftover_double_sent = true
+        @signup.save!
+      end
+    end
   end
 
   def resend_accepted
@@ -164,6 +186,13 @@ module Unhackathon
     signups = Signup.where(status: "confirmed")
     signups.each do |signup|
       SignupEmailer.new(signup).send_double_confirmed
+    end
+  end
+
+  def self.send_leftover_double
+    signups = Signup.where(status: "confirmed", is_double_confirmed: false)
+    signups.each do |signup|
+      SignupEmailer.new(signup).send_leftover_double
     end
   end
 end
