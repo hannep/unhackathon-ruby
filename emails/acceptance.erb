@@ -64,18 +64,16 @@
                         
                             Hey <%= @name %>, <br>
 <br>
-I'm excited to tell you that your application to Unhackathon has been accepted! After reading all your thoughts and ideas in our survey section, we think you're an excellent fit for the event. Congratulations!<br>
+I'm excited to tell you that your application to Unhackathon has been accepted! After reading all your thoughts and ideas in our survey section, we think you're an excellent fit for the event. Congratulations! <b>It is EXTREMELY IMPORTANT that you confirm using one of the buttons in this email if you intend to attend Unhackathon, so read carefully.</b>
 <br>
-We'll be using what you wrote, as well as the answers to the other application questions, to make Unhackathon as great as possible. We've accepted hackers with incredibly diverse backgrounds and interests, and all levels of experience. It's a smart, engaged, and friendly group, so you're bound to make friends and have interesting conversations. Our team of inspiring mentors will also be around to help and advise. We'll be sending updates as the event gets closer to help you get ready for an epic weekend. <strong>Remember, applications are still open at <a href="<%= base_url %>" target="_blank">unhackathon.org</a>,</strong> so you still have time to tell your friends and build your team.<br>
+ We've accepted hackers with incredibly diverse backgrounds and interests, and all levels of experience, to be part of Unhackathon. It's a smart, engaged, and friendly group, so you're bound to make friends and have interesting conversations. Our team of inspiring mentors will also be around to help and advise.
 <a href="https://a.tiles.mapbox.com/v4/hannep.j6me9d83/page.html?access_token=pk.eyJ1IjoiaGFubmVwIiwiYSI6IjYybzlPM2MifQ.JkZw762oCUHD6iNtpHXKBQ#6/41.755/-76.696" target="_blank"><img align="left" alt="Our bus area map. Click for detail. " height="210" src="http://www.unhackathon.org/img/transit_map.png" style="width:200px;height:190px;margin:10px" width="220"></a>
 <br>
-First, here's some logistical info. So far we're able to sendbuses to pick up anyone who is inside this red shape (click the image or <a href="https://a.tiles.mapbox.com/v4/hannep.j6me9d83/page.html?access_token=pk.eyJ1IjoiaGFubmVwIiwiYSI6IjYybzlPM2MifQ.JkZw762oCUHD6iNtpHXKBQ#6/41.755/-76.696" target="_blank">here</a> for the full map), <strong>and</strong> has at least 8 hackers coming from their school. <br> 
+This is the map of schools we have the funding to potentially get transportation for. Please check to see if you are within this shape, and select an option accordingly. 
 <br>
-Applications are still open, so get your friends and classmates together! If you need any help, be sure to email us. <br>
+If you live within the red shape, and you go to a school with at least 8 confirmed hackers, we will be providing your transportation either by picking you up in a chartered bus or by booking you a public transportation ticket. If you are within the shape but aren't part of a group, we will help you try to figure out how to meet another school's transportation. Everyone will meet at our awesome new location, AlleyNYC in Manhattan, between 7:30 and 8:30 for registration.<br>
 <br>
-If you live outside that shape and can't meet us at a school inside it, we're still working on getting your travel put together. Hang tight! <br>
-<br>
-<div style="clear:both;">Please press one of these three huge red buttons so we know what your plans are: </div></span>
+<div style="clear:both;">If you are still planning on attending Unhackathon, please press one of these two huge red buttons so we know what your plans are: </div></span>
                         </td>
                     </tr>
                 </tbody></table>
@@ -91,7 +89,7 @@ If you live outside that shape and can't meet us at a school inside it, we're st
                     <tbody>
                         <tr>
                             <td align="center" valign="middle" style="font-family:Arial;font-size:16px">
-                                <a href="<%= confirm_url("bus") %>" title="I'm all set! I plan to be on one of the Unhackathon buses." style="font-weight:bold;letter-spacing:normal;line-height:100%;text-align:center;text-decoration:none;color:#ffffff;padding:16px;display:block">I'm all set! I plan to be on one of the Unhackathon buses.</a>
+                                <a href="<%= confirm_url("bus") %>" title="I live in the red shape, and I am 100% sure I can attend if my transportation is provided. I'll be ready for a phone call from an Unhackathon team member tomorrow!" style="font-weight:bold;letter-spacing:normal;line-height:100%;text-align:center;text-decoration:none;color:#ffffff;padding:16px;display:block">I live in the red shape, and I am 100% sure I can attend if my transportation is provided. I'll be ready for a phone call from an Unhackathon team member tomorrow!</a>
                             </td>
                         </tr>
                     </tbody>
@@ -107,23 +105,7 @@ If you live outside that shape and can't meet us at a school inside it, we're st
                     <tbody>
                         <tr>
                             <td align="center" valign="middle" style="font-family:Arial;font-size:16px">
-                                <a href="<%= confirm_url("outside") %>" title="I want to be there but my school is outside the bus range." style="font-weight:bold;letter-spacing:normal;line-height:100%;text-align:center;text-decoration:none;color:#ffffff;padding:16px;display:block">I want to be there but my school is outside the bus range.</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-        </tr>
-    </tbody>
-</table><table border="0" cellpadding="0" cellspacing="0" width="100%">
-    <tbody>
-        <tr>
-            <td style="padding-top:0;padding-right:18px;padding-bottom:18px;padding-left:18px" valign="top" align="center">
-                <table border="0" cellpadding="0" cellspacing="0" style="border-collapse:separate!important;border:2px solid #aa0000;border-top-left-radius:5px;border-top-right-radius:5px;border-bottom-right-radius:5px;border-bottom-left-radius:5px;background-color:#cc0000">
-                    <tbody>
-                        <tr>
-                            <td align="center" valign="middle" style="font-family:Arial;font-size:16px">
-                                <a href="<%= confirm_url("own") %>" title="I'll be handling my own transportation to Unhackathon! :)" style="font-weight:bold;letter-spacing:normal;line-height:100%;text-align:center;text-decoration:none;color:#ffffff;padding:16px;display: block">I'll be handling my own transportation to Unhackathon! :)</a>
+                                <a href="<%= confirm_url("own") %>" title="I will be attending, and handling my own transportation to Unhackathon. See you on Saturday between 7:30 and 8:30am." style="font-weight:bold;letter-spacing:normal;line-height:100%;text-align:center;text-decoration:none;color:#ffffff;padding:16px;display: block">I will be attending, and handling my own transportation to Unhackathon. See you on Saturday between 7:30 and 8:30am.</a>
                             </td>
                         </tr>
                     </tbody>
@@ -141,9 +123,9 @@ If you live outside that shape and can't meet us at a school inside it, we're st
                         
                         <td valign="top" style="padding-top:9px;padding-right:18px;padding-bottom:9px;padding-left:18px">
                         
-                            If it turns out you can't attend anymore, <a href="<%= cancel_url() %>" target="_blank">click here.</a> We'll miss you. <br>
+                            IMPORTANT: If it turns out you can't attend anymore, <a href="<%= cancel_url() %>" target="_blank">click here.</a> We'll miss you. <br>
 <br>
-As always, feel free to email any time you have a question about Unhackathon. We can't wait to meet you in September! <br>
+As always, feel free to email any time you have a question about Unhackathon. We can't wait to meet you in three days! <br>
 <br>
 Cheers,<br>
 Hanne &amp; the Unhackathon Team 

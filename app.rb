@@ -113,6 +113,7 @@ module Unhackathon
         end
         signup.transit = transit
         signup.confirmed!
+        signup.is_double_confirmed = true
         signup.save
         erb :confirm_going
       else

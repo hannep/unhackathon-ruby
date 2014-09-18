@@ -94,7 +94,7 @@ module Unhackathon
 
     def send_acceptance()
       assert_valid_signup      
-      send_email mail_subject: "You're in! Your Unhackathon application has been accepted.",
+      send_email mail_subject: "ACTION REQUIRED: Your Unhackathon application has been accepted.",
                  html_template: "acceptance",
                  text_template: "acceptance_text",
                  email_from: 'Hanne @ Unhackathon <hanne@unhackathon.org>'
