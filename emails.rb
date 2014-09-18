@@ -176,7 +176,7 @@ module Unhackathon
     end
   end
 
-  def resend_accepted
+  def self.resend_accepted
     signups = Signup.where(status: "accepted")
     signups.each do |signup|
       SignupEmailer.new(signup).resend_accepted
