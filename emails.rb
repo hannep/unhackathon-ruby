@@ -66,8 +66,10 @@ module Unhackathon
       Erubis::Eruby.new(template_text).result(binding())
     end
 
-    def send_email(email_from:, mail_subject:, html_template:, text_template: nil)
-      html_body = render_body(html_template)
+    def send_email(email_from:, mail_subject:, html_template: nil, text_template: nil)
+      if html_template then
+        html_body = render_body(html_template)
+      end
       if text_template then
         text_body = render_body(text_template)
       end
@@ -77,13 +79,17 @@ module Unhackathon
         from    email_from
         subject mail_subject
 
-        text_part do
-          body text_body
+        if text_template then
+          text_part do
+            body text_body
+          end
         end
 
-        html_part do
-          content_type 'text/html; charset=UTF-8'
-          body html_body
+        if html_template then
+          html_part do
+            content_type 'text/html; charset=UTF-8'
+            body html_body
+          end
         end
       end
     end
@@ -155,6 +161,18 @@ module Unhackathon
       end
     end
 
+
+    def send_transit_all
+      if @signup.cancelled? then
+        raise "Cannot send double confirmation for non-confirmed signup"
+      end
+    
+      puts "Sending for #{@signup.email}"
+      send_email mail_subject: "Reminder - Your Unhackathon Travel",
+                 text_template: "transitall_text",
+                 email_from: 'Team @ Unhackathon <team@unhackathon.org>'
+    end
+
     def send_leftover_double
       if !@signup.confirmed? then
         raise "Cannot send double confirmation for non-confirmed signup"
@@ -173,6 +191,13 @@ module Unhackathon
         @signup.is_leftover_double_sent = true
         @signup.save!
       end
+    end
+  end
+
+  def self.send_transit_all
+    signups = Signup.where.not(status: "cancelled")
+    signups.each do |signup|
+      SignupEmailer.new(signup).send_transit_all
     end
   end
 
