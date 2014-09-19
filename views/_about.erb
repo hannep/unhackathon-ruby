@@ -98,12 +98,17 @@
         </div>
         <h2 class="chunk-five">Sponsors</h2>
         <div id="major-sponsors"  class="clearfix">
-            <% ["softheon", "mandrill"].each do |sponsor|%>
+            <% ["alley-nyc"].each do |sponsor|%>
+                <%== erb :_sponsor, locals: {:sponsor => sponsor} %>
+            <% end %>
+        </div>
+        <div id="minor-sponsors"  class="clearfix">
+            <% ["softheon", "mandrill", "entrepeneur"].each do |sponsor|%>
                 <%== erb :_sponsor, locals: {:sponsor => sponsor} %>
             <% end %>
         </div>
 
-        <div id="minor-sponsors" class="clearfix">
+        <div id="tiny-sponsors" class="clearfix">
             <% ["bloomberg", "media-radar", "digital-ocean", "google"].each do |sponsor|%>
                 <%== erb :_sponsor, locals: {:sponsor => sponsor} %>
             <% end %>

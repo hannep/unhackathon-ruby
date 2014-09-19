@@ -30,15 +30,22 @@ body {
     background-size: 160px;
 }
 
-#major-sponsors .sponsor-image {
-    width: 400px;
-    height: 300px;
+.sponsor-image.entrepeneur {
+    background-position-y: 0px;
 }
 
 #major-sponsors {
-    margin-top: -50px;
-    margin-left: 50px;
+    margin-top: 0px;
+    margin-left: 0px;
     width: 800px;
+}
+
+#major-sponsors .sponsor-image {
+    width: 400px;
+    height: 300px;
+    float:none;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #minor-sponsors {
@@ -49,11 +56,27 @@ body {
 }
 
 #minor-sponsors .sponsor-image {
+    width: 245px;
+    height: 150px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#tiny-sponsors {
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    margin-bottom:20px;
+}
+
+#tiny-sponsors .sponsor-image {
     width: 150px;
     height: 100px;
     margin-left: 25px;
     margin-right: 25px;
 }
+
+
 #logo {
     width: 160px;
     height: 160px;
@@ -583,6 +606,20 @@ div.checkbox-container {
         margin-right: auto;
         width: 400px;
     }
+    #minor-sponsors .sponsor-image {
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+
+    #tiny-sponsors {
+        width: 400px;
+    }
+    #tiny-sponsors .sponsor-image {
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
 
 }
 
@@ -613,14 +650,18 @@ div.checkbox-container {
         width: 100%;
     }
 
-    .sponsor-image.mandrill {
-        background-size: auto;
+    #minor-sponsors .sponsor-image.mandrill {
+        background-size: contain;
     }
 
     #minor-sponsors {
         width: 150px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    #tiny-sponsors {
+        width: 150px;
     }
 
     #minor-sponsors .sponsor-image {
