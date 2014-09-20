@@ -18,9 +18,14 @@ body {
 	background-size: cover;
 }
 
-#conduct {
-    margin: 0 50px 0 200px;
+#conduct, .other-page {
+    margin: 20px 50px 20px 200px;
     max-width:600px;
+}
+
+.hacker-link {
+    display: block;
+    margin: 20px;
 }
 
 .sponsor-image {
@@ -647,8 +652,8 @@ div.checkbox-container {
 }
 
 @media(max-width: 767px) {
-    #conduct {
-        margin: 0 50px;
+    #conduct, .other-page {
+        margin: 20px 50px;
     }
 
     .about {

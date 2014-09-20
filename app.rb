@@ -41,7 +41,7 @@ module Unhackathon
       redirect to('https://docs.google.com/forms/d/1KN5htQPMbz4jcc9HCFCKh9MtbOpy1pdHF6iuxRM4aUk/viewform')
     end
 
-    get "/hackers/" do
+    get "/hackers" do
       erb :hackers
     end
 
@@ -64,12 +64,16 @@ module Unhackathon
       erb :report_submit
     end
 
-    get "/hackors/mentorship" do
+    get "/hackers/mentorship" do
       erb :mentorship
     end
 
-    get "/hackors/mentors" do
+    get "/hackers/mentors" do
       erb :mentorship
+    end
+
+    get "/hackers/schedule" do
+      erb :schedule
     end
 
     get "/mentors" do
