@@ -42,3 +42,6 @@ end
 
 class Sponsor < ActiveRecord::Base
 end
+
+class ResumeSubmit < ActiveRecord::Base
+end
