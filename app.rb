@@ -17,6 +17,22 @@ module Unhackathon
     	erb :index
     end
 
+    get "/hackers/shirt" do
+      redirect to('https://docs.google.com/forms/d/1KN5htQPMbz4jcc9HCFCKh9MtbOpy1pdHF6iuxRM4aUk/viewform')
+    end
+
+    get "/hackers/shirts" do
+      redirect to('https://docs.google.com/forms/d/1KN5htQPMbz4jcc9HCFCKh9MtbOpy1pdHF6iuxRM4aUk/viewform')
+    end
+
+    get "/hackers/tshirts" do
+      redirect to('https://docs.google.com/forms/d/1KN5htQPMbz4jcc9HCFCKh9MtbOpy1pdHF6iuxRM4aUk/viewform')
+    end
+
+    get "/hackers/tshirt" do
+      redirect to('https://docs.google.com/forms/d/1KN5htQPMbz4jcc9HCFCKh9MtbOpy1pdHF6iuxRM4aUk/viewform')
+    end
+
     get "/mentors" do
       s = Signup.new
       erb :mentors
