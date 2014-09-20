@@ -33,6 +33,45 @@ module Unhackathon
       redirect to('https://docs.google.com/forms/d/1KN5htQPMbz4jcc9HCFCKh9MtbOpy1pdHF6iuxRM4aUk/viewform')
     end
 
+    get "/hackers/tshirt" do
+      redirect to('https://docs.google.com/forms/d/1KN5htQPMbz4jcc9HCFCKh9MtbOpy1pdHF6iuxRM4aUk/viewform')
+    end
+
+    get "/hackers/tshirt" do
+      redirect to('https://docs.google.com/forms/d/1KN5htQPMbz4jcc9HCFCKh9MtbOpy1pdHF6iuxRM4aUk/viewform')
+    end
+
+    get "/hackers/" do
+      erb :hackers
+    end
+
+    get "/hackers/conduct" do
+      erb :conduct
+    end
+
+    post "/hackers/report" do
+      email_text = params[:report]
+
+      mail = Mail.new do
+        from    'team@unhackathon.org'
+        to      'paine.hanne@gmail.com'
+        subject 'Incident Report!'
+        body    email_text
+      end
+
+      mail.deliver!
+
+      erb :report_submit
+    end
+
+    get "/hackors/mentorship" do
+      erb :mentorship
+    end
+
+    get "/hackors/mentors" do
+      erb :mentorship
+    end
+
     get "/mentors" do
       s = Signup.new
       erb :mentors
