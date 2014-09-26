@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140918051707) do
+ActiveRecord::Schema.define(version: 20140920031025) do
 
   create_table "mentor_signups", force: true do |t|
     t.string  "first_name"
@@ -37,6 +37,11 @@ ActiveRecord::Schema.define(version: 20140918051707) do
     t.boolean "saturday5"
     t.boolean "saturday6"
     t.boolean "saturday7"
+  end
+
+  create_table "resume_submits", force: true do |t|
+    t.string "email"
+    t.binary "resume"
   end
 
   create_table "signups", force: true do |t|

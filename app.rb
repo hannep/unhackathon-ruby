@@ -81,6 +81,11 @@ module Unhackathon
       erb :mentors
     end
 
+    get "/resume" do
+      s = Signup.new
+      erb :resume
+    end
+
     post "/create_signup" do
       #We have to stop the part of the username after the plus, so we don't
       # get signups from 'different' emails that are actually the same.
@@ -117,6 +122,11 @@ module Unhackathon
     post "/mentor_signup" do
       signup = MentorSignup.new(params)
       signup.save
+    end
+
+    post "/resume_submit" do
+      submit = ResumeSubmit.new(params)
+      submit.save
     end
 
     get "/validate" do 

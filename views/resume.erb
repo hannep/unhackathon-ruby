@@ -1,0 +1,34 @@
+<div id="logo">
+    <div class="name">Un<br>hack<br>athon</div>
+    <div class="date">Sept. 20-21</div>
+    <div class="place">New York, New York</div>
+</div>
+<div class="top">
+<!-- multistep form -->
+<form id="msform" action="/resume_submit">
+    <!-- fieldsets -->
+    <fieldset class="page">
+        <h2 class="fs-title large">Submit Your Resume!</h2>
+        <p>It's finally here - Unhackathon! As we're settling down, take a moment to upload your resume.<br><br>This will allow our sponsors and mentors, including those that are in this event, to see it and get in touch with you if they are interested. Of course, we believe that you should talk to sponsors and mentors directly, face to face, during this hackathon.</p>
+        <input type="text" name="email" placeholder="Your Email" data-validator="email" />
+        <input type="file" name="resume" data-validator="required"/>
+        <input type="button" name="submit" class="submit action-button" value="Submit" />
+    </fieldset>
+    <div class="page" id="success-page">
+        <h2 class="fs-title">Success!</h2>
+        <p>Thanks so much! Now go enjoy Unhackathon! If you have any questions, let us know by stopping us when you see us, or emailing us at <a href="mailto:team@unhackathon.org">team@unhackathon.org</a>.</p>
+    </div>
+    <div class="page" id="failure-page">
+        <h2 class="fs-title">Oh no!</h2>
+        <p>It looks like something has gone wrong with your submission.</p>
+        <p>The error is: <span class="error"></span></p>
+        <p>Please contact us at <a href="mailto:support@unhackathon.org">support@unhackathon.org.</a> and we'll get everything sorted out.</p>
+    </div>
+</form>
+<div class="scroll-down-arrow"><span class="glyphicon glyphicon-chevron-down"></span></div>
+</div>
+<div class="bottom">
+    <%== erb :_about %>
+</div>
+
+<!-- jQuery -->
